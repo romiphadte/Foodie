@@ -14,8 +14,6 @@
 		E402F8AA18C1A7CE0059482C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E402F8A818C1A7CE0059482C /* InfoPlist.strings */; };
 		E402F8AC18C1A7CE0059482C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8AB18C1A7CE0059482C /* main.m */; };
 		E402F8B018C1A7CE0059482C /* RNPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */; };
-		E402F8B318C1A7CE0059482C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E402F8B118C1A7CE0059482C /* Main_iPhone.storyboard */; };
-		E402F8B618C1A7CE0059482C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E402F8B418C1A7CE0059482C /* Main_iPad.storyboard */; };
 		E402F8B918C1A7CE0059482C /* RNPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8B818C1A7CE0059482C /* RNPViewController.m */; };
 		E402F8BB18C1A7CE0059482C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E402F8BA18C1A7CE0059482C /* Images.xcassets */; };
 		E402F8C218C1A7CE0059482C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8C118C1A7CE0059482C /* XCTest.framework */; };
@@ -48,8 +46,6 @@
 		E402F8AD18C1A7CE0059482C /* Foodie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foodie-Prefix.pch"; sourceTree = "<group>"; };
 		E402F8AE18C1A7CE0059482C /* RNPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPAppDelegate.h; sourceTree = "<group>"; };
 		E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPAppDelegate.m; sourceTree = "<group>"; };
-		E402F8B218C1A7CE0059482C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		E402F8B518C1A7CE0059482C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		E402F8B718C1A7CE0059482C /* RNPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPViewController.h; sourceTree = "<group>"; };
 		E402F8B818C1A7CE0059482C /* RNPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPViewController.m; sourceTree = "<group>"; };
 		E402F8BA18C1A7CE0059482C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -119,8 +115,6 @@
 			children = (
 				E402F8AE18C1A7CE0059482C /* RNPAppDelegate.h */,
 				E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */,
-				E402F8B118C1A7CE0059482C /* Main_iPhone.storyboard */,
-				E402F8B418C1A7CE0059482C /* Main_iPad.storyboard */,
 				E402F8B718C1A7CE0059482C /* RNPViewController.h */,
 				E402F8B818C1A7CE0059482C /* RNPViewController.m */,
 				070B6A9E18C1A94A00135C17 /* RNPFeedViewController.h */,
@@ -237,9 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E402F8B618C1A7CE0059482C /* Main_iPad.storyboard in Resources */,
 				E402F8BB18C1A7CE0059482C /* Images.xcassets in Resources */,
-				E402F8B318C1A7CE0059482C /* Main_iPhone.storyboard in Resources */,
 				E402F8AA18C1A7CE0059482C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,22 +283,6 @@
 				E402F8A918C1A7CE0059482C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E402F8B118C1A7CE0059482C /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E402F8B218C1A7CE0059482C /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		E402F8B418C1A7CE0059482C /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E402F8B518C1A7CE0059482C /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		E402F8CA18C1A7CE0059482C /* InfoPlist.strings */ = {
