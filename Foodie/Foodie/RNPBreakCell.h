@@ -1,5 +1,5 @@
 //
-//  RNPFeedViewController.h
+//  RNPBreakCell.h
 //  Foodie
 //
 //  Created by Neeraj Baid on 3/2/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RNPFeedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface RNPBreakCell : UITableViewCell
 
 @end
