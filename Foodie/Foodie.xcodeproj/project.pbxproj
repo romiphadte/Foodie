@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		070B6AA018C1A94A00135C17 /* RNPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 070B6A9F18C1A94A00135C17 /* RNPFeedViewController.m */; };
+		07C883B218C3FEE300BAF939 /* RNPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */; };
+		07C883B318C3FEE300BAF939 /* RNPFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */; };
+		07C883B818C4003300BAF939 /* Friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B718C4003300BAF939 /* Friends.png */; };
+		07C883BA18C4017800BAF939 /* Nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B918C4017800BAF939 /* Nearby.png */; };
+		07C883BC18C401CC00BAF939 /* World.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883BB18C401CC00BAF939 /* World.png */; };
 		E402F8A018C1A7CE0059482C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F89F18C1A7CE0059482C /* Foundation.framework */; };
 		E402F8A218C1A7CE0059482C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A118C1A7CE0059482C /* CoreGraphics.framework */; };
 		E402F8A418C1A7CE0059482C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
 		E402F8AA18C1A7CE0059482C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E402F8A818C1A7CE0059482C /* InfoPlist.strings */; };
 		E402F8AC18C1A7CE0059482C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8AB18C1A7CE0059482C /* main.m */; };
 		E402F8B018C1A7CE0059482C /* RNPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */; };
-		E402F8B918C1A7CE0059482C /* RNPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8B818C1A7CE0059482C /* RNPViewController.m */; };
 		E402F8BB18C1A7CE0059482C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E402F8BA18C1A7CE0059482C /* Images.xcassets */; };
 		E402F8C218C1A7CE0059482C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8C118C1A7CE0059482C /* XCTest.framework */; };
 		E402F8C318C1A7CE0059482C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F89F18C1A7CE0059482C /* Foundation.framework */; };
@@ -34,8 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		070B6A9E18C1A94A00135C17 /* RNPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPFeedViewController.h; sourceTree = "<group>"; };
-		070B6A9F18C1A94A00135C17 /* RNPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPFeedViewController.m; sourceTree = "<group>"; };
+		07C883AF18C3FEE300BAF939 /* RNPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNPFeedViewController.h; path = ../RNPFeedViewController.h; sourceTree = "<group>"; };
+		07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNPFeedViewController.m; path = ../RNPFeedViewController.m; sourceTree = "<group>"; };
+		07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RNPFeedViewController.xib; path = ../RNPFeedViewController.xib; sourceTree = "<group>"; };
+		07C883B718C4003300BAF939 /* Friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Friends.png; sourceTree = "<group>"; };
+		07C883B918C4017800BAF939 /* Nearby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nearby.png; sourceTree = "<group>"; };
+		07C883BB18C401CC00BAF939 /* World.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = World.png; sourceTree = "<group>"; };
 		E402F89C18C1A7CE0059482C /* Foodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E402F89F18C1A7CE0059482C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E402F8A118C1A7CE0059482C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,8 +53,6 @@
 		E402F8AD18C1A7CE0059482C /* Foodie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foodie-Prefix.pch"; sourceTree = "<group>"; };
 		E402F8AE18C1A7CE0059482C /* RNPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPAppDelegate.h; sourceTree = "<group>"; };
 		E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPAppDelegate.m; sourceTree = "<group>"; };
-		E402F8B718C1A7CE0059482C /* RNPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPViewController.h; sourceTree = "<group>"; };
-		E402F8B818C1A7CE0059482C /* RNPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPViewController.m; sourceTree = "<group>"; };
 		E402F8BA18C1A7CE0059482C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E402F8C018C1A7CE0059482C /* FoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E402F8C118C1A7CE0059482C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -80,6 +85,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07C883B618C3FFB900BAF939 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				07C883B718C4003300BAF939 /* Friends.png */,
+				07C883B918C4017800BAF939 /* Nearby.png */,
+				07C883BB18C401CC00BAF939 /* World.png */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
 		E402F89318C1A7CE0059482C = {
 			isa = PBXGroup;
 			children = (
@@ -115,10 +130,9 @@
 			children = (
 				E402F8AE18C1A7CE0059482C /* RNPAppDelegate.h */,
 				E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */,
-				E402F8B718C1A7CE0059482C /* RNPViewController.h */,
-				E402F8B818C1A7CE0059482C /* RNPViewController.m */,
-				070B6A9E18C1A94A00135C17 /* RNPFeedViewController.h */,
-				070B6A9F18C1A94A00135C17 /* RNPFeedViewController.m */,
+				07C883AF18C3FEE300BAF939 /* RNPFeedViewController.h */,
+				07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */,
+				07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */,
 				E402F8BA18C1A7CE0059482C /* Images.xcassets */,
 				E402F8A618C1A7CE0059482C /* Supporting Files */,
 			);
@@ -128,6 +142,7 @@
 		E402F8A618C1A7CE0059482C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07C883B618C3FFB900BAF939 /* Feed */,
 				E402F8A718C1A7CE0059482C /* Foodie-Info.plist */,
 				E402F8A818C1A7CE0059482C /* InfoPlist.strings */,
 				E402F8AB18C1A7CE0059482C /* main.m */,
@@ -231,8 +246,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C883B318C3FEE300BAF939 /* RNPFeedViewController.xib in Resources */,
+				07C883B818C4003300BAF939 /* Friends.png in Resources */,
+				07C883BC18C401CC00BAF939 /* World.png in Resources */,
 				E402F8BB18C1A7CE0059482C /* Images.xcassets in Resources */,
 				E402F8AA18C1A7CE0059482C /* InfoPlist.strings in Resources */,
+				07C883BA18C4017800BAF939 /* Nearby.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E402F8B918C1A7CE0059482C /* RNPViewController.m in Sources */,
-				070B6AA018C1A94A00135C17 /* RNPFeedViewController.m in Sources */,
+				07C883B218C3FEE300BAF939 /* RNPFeedViewController.m in Sources */,
 				E402F8AC18C1A7CE0059482C /* main.m in Sources */,
 				E402F8B018C1A7CE0059482C /* RNPAppDelegate.m in Sources */,
 			);

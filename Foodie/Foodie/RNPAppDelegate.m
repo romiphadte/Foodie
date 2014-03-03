@@ -7,13 +7,18 @@
 //
 
 #import "RNPAppDelegate.h"
+#import "RNPFeedViewController.h"
 
 @implementation RNPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //test
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    RNPFeedViewController *feedViewController = [[RNPFeedViewController alloc] initWithNibName:@"RNPFeedViewController" bundle:[NSBundle mainBundle]];
+    self.window.rootViewController = feedViewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
