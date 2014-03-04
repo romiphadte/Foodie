@@ -50,7 +50,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"RNPBreakCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"break_cell"];
     [self.navigationBar setBarTintColor:[UIColor blackColor]];
     
-    [self updateFeed];
+    [self updateGlobalFeed];
     
     _HUD = [[MBProgressHUD alloc] initWithView:self.view];
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -165,7 +165,7 @@
     
     headerView.label.text = [NSString stringWithFormat:@"*%@* at *%@*", [data objectForKey:@"dish"], [data objectForKey:@"restaurantname"]];
     
-    headerView.likes.text = [data objectForKey:@"numlikes"];
+    headerView.likes.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[data objectForKey:@"likes"] count]];
     
     NSMutableAttributedString* basicMarkupString = [OHASBasicMarkupParser attributedStringByProcessingMarkupInAttributedString:headerView.label.attributedText];
     headerView.label.attributedText = basicMarkupString;
@@ -200,9 +200,9 @@
 
 #pragma mark - Updating
 
-- (void)updateFeed
+- (void)updateGlobalFeed
 {
-    NSLog(@"update feed");
+    NSLog(@"update global feed");
     if (!_data)
         _data = [NSArray array];
     NSString *str = @"http://foodieapp.herokuapp.com/images/cHQdfW429KXwp8FQNK7u";
