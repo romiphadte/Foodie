@@ -24,6 +24,7 @@
 @property (strong, nonatomic) MBProgressHUD *HUD;
 
 @property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSDictionary *profilePictures;
 
 @end
 
@@ -143,7 +144,7 @@
     headerView.blurView.underlyingView = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]].imageView;
     headerView.blurView.blurRadius = 40;
     
-    NSString *str = [NSString stringWithFormat:@"http://foodieapp.herokuapp.com/profile_picture/auth/%@", [data objectForKey:@"username"]];
+    NSString *str = [_profilePictures objectForKey:[data objectForKey:@"username"]];
     NSURL *url = [NSURL URLWithString:str];
     
     [headerView.profilePicture setImageWithURL:url placeholderImage:[UIImage imageNamed:@"profile-placeholder.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType)
@@ -204,7 +205,7 @@
     NSLog(@"update feed");
     if (!_data)
         _data = [NSArray array];
-    NSString *str = @"http://foodieapp.herokuapp.com/images/auth";
+    NSString *str = @"http://foodieapp.herokuapp.com/images/cHQdfW429KXwp8FQNK7u";
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
@@ -215,7 +216,8 @@
              NSLog(@"updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
              NSLog(@"info %@", info);
-             _data = info;
+             _data = info[0];
+             _profilePictures = info[1];
              [self.tableView reloadData];
          }
      }];
