@@ -11,12 +11,19 @@
 #import "RNPBreakCell.h"
 #import "RNPFeedHeader.h"
 #import "RNPFeedFooter.h"
+#import "UIImageView+WebCache.h"
 #import <OHAttributedLabel/OHASBasicMarkupParser.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
 
 @interface RNPFeedViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+
+@property (strong, nonatomic) MBProgressHUD *HUD;
+
+@property (strong, nonatomic) NSArray *data;
 
 @end
 
@@ -34,13 +41,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [FXBlurView setUpdatesEnabled];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"RNPFeedCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"image_cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"RNPBreakCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"break_cell"];
     [self.navigationBar setBarTintColor:[UIColor blackColor]];
     
-    [FXBlurView setUpdatesEnabled];
+    [self updateFeed];
+    
+    _HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -54,7 +68,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    NSLog(@"%lu", (unsigned long)[_data count]);
+    return [_data count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,7 +83,22 @@
     if (indexPath.row == 0)
     {
         RNPFeedCell *cell = (RNPFeedCell *)[self.tableView dequeueReusableCellWithIdentifier:@"image_cell"];
-        cell.imageView.image = [UIImage imageNamed:@"test.png"];
+        
+        NSDictionary *data = [_data objectAtIndex:indexPath.section];
+        NSString *urlString = [data objectForKey:@"url"];
+        NSURL *imageURL = [NSURL URLWithString:urlString];
+        
+        [cell.imageView setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType)
+         {
+             [cell.imageView setBackgroundColor:[UIColor colorWithRed:130 green:130 blue:130 alpha:1]];
+             cell.imageView.alpha = 0.0;
+             [UIView animateWithDuration:.35
+                              animations:^{
+                                  cell.imageView.alpha = 1.0;
+                              }];
+         }];
+        
+        cell.caption.text = [data objectForKey:@"caption"];
         
         int num_iterations = 2;
         int blur_radius = 30;
@@ -96,7 +126,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 375;
+    return 367;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -104,29 +134,39 @@
     RNPFeedHeader *headerView = [[NSBundle mainBundle] loadNibNamed:@"RNPFeedHeader" owner:self options:Nil][0];
     UIView *view = [[UIView alloc] initWithFrame:[headerView frame]];
     
+    NSDictionary *data = [_data objectAtIndex:section];
+    
+    headerView.username.text = [data objectForKey:@"username"];
+    
     headerView.blurView.tintColor = [UIColor blackColor];
     headerView.blurView.updateInterval = 0;
     headerView.blurView.underlyingView = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]].imageView;
     headerView.blurView.blurRadius = 40;
     
-    headerView.profilePicture.image = [UIImage imageNamed:@"profile.jpg"];
+    NSString *str = [NSString stringWithFormat:@"http://foodieapp.herokuapp.com/profile_picture/auth/%@", [data objectForKey:@"username"]];
+    NSURL *url = [NSURL URLWithString:str];
+    
+    [headerView.profilePicture setImageWithURL:url placeholderImage:[UIImage imageNamed:@"profile-placeholder.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType)
+     {
+         [headerView.profilePicture setBackgroundColor:[UIColor colorWithRed:130 green:130 blue:130 alpha:1]];
+         headerView.profilePicture.alpha = 0.0;
+         [UIView animateWithDuration:.35
+                          animations:^{
+                              headerView.profilePicture.alpha = 1.0;
+                          }];
+     }];
     
     headerView.profilePicture.layer.cornerRadius = 19;
     headerView.profilePicture.layer.masksToBounds = YES;
     
-    headerView.profilePicture.layer.shadowOffset = CGSizeMake(0, 1);
-    headerView.profilePicture.layer.shadowRadius = 2;
-    headerView.profilePicture.layer.shadowColor = ([UIColor blackColor]).CGColor;
-    headerView.profilePicture.layer.shadowOpacity = .7;
-    
     headerView.profilePicture.layer.borderColor = [UIColor blackColor].CGColor;
     headerView.profilePicture.layer.borderWidth = 1;
     
+    headerView.label.text = [NSString stringWithFormat:@"*%@* at *%@*", [data objectForKey:@"dish"], [data objectForKey:@"restaurantname"]];
+    
+    headerView.likes.text = [data objectForKey:@"numlikes"];
+    
     NSMutableAttributedString* basicMarkupString = [OHASBasicMarkupParser attributedStringByProcessingMarkupInAttributedString:headerView.label.attributedText];
-//    [basicMarkupString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle)
-//    {
-//        paragraphStyle.firstLineHeadIndent = 20.f;
-//    }];
     headerView.label.attributedText = basicMarkupString;
     
     [view addSubview:headerView];
@@ -156,4 +196,29 @@
 //{
 //    return 43;
 //}
+
+#pragma mark - Updating
+
+- (void)updateFeed
+{
+    NSLog(@"update feed");
+    if (!_data)
+        _data = [NSArray array];
+    NSString *str = @"http://foodieapp.herokuapp.com/images/auth";
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (data)
+         {
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             NSLog(@"updated data");
+             NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
+             NSLog(@"info %@", info);
+             _data = info;
+             [self.tableView reloadData];
+         }
+     }];
+}
+
 @end
