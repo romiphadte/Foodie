@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import <OHAttributedLabel/OHASBasicMarkupParser.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface RNPFeedViewController ()
@@ -25,6 +26,12 @@
 
 @property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) NSDictionary *profilePictures;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
+@property (nonatomic) BOOL locationUpdateIsForNearbyRefresh;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *feedSelector;
 
 @end
 
@@ -50,12 +57,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"RNPBreakCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"break_cell"];
     [self.navigationBar setBarTintColor:[UIColor blackColor]];
     
-    [self updateGlobalFeed];
-    
+    [self feedSelectionChanged:_feedSelector];
     _HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    
+    self.locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    [self getLocation];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -200,12 +207,10 @@
 
 #pragma mark - Updating
 
-- (void)updateGlobalFeed
+- (void)updateFollowingFeed
 {
     NSLog(@"update global feed");
-    if (!_data)
-        _data = [NSArray array];
-    NSString *str = @"http://foodieapp.herokuapp.com/images/cHQdfW429KXwp8FQNK7u";
+    NSString *str = @"http://foodieapp.herokuapp.com/images_following/cHQdfW429KXwp8FQNK7u/2neeraj"; //need to add user info
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
@@ -221,6 +226,89 @@
              [self.tableView reloadData];
          }
      }];
+}
+
+- (void)updateNearbyFeed
+{
+    NSLog(@"update nearby feed");
+    _locationUpdateIsForNearbyRefresh = NO;
+    NSString *str = [NSString stringWithFormat:@"http://foodieapp.herokuapp.com/images_nearby/cHQdfW429KXwp8FQNK7u/%f/%f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
+    NSLog(@"string: %@", str);
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (data)
+         {
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             NSLog(@"updated data");
+             NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
+             NSLog(@"info %@", info);
+             _data = info[0];
+             _profilePictures = info[1];
+             [self.tableView reloadData];
+         }
+     }];
+}
+
+- (void)updateGlobalFeed
+{
+    NSLog(@"update global feed");
+    NSString *str = @"http://foodieapp.herokuapp.com/images_global/cHQdfW429KXwp8FQNK7u";
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (data)
+         {
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             NSLog(@"updated data");
+             NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
+             NSLog(@"info %@", info);
+             _data = info[0];
+             _profilePictures = info[1];
+             [self.tableView reloadData];
+         }
+     }];
+}
+
+- (IBAction)feedSelectionChanged:(id)sender
+{
+    _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    int selectedIndex = (int)[sender selectedSegmentIndex];
+    if (selectedIndex == 0)
+        [self updateGlobalFeed];
+//        [self updateFollowingFeed];
+    else if (selectedIndex == 1)
+    {
+        if ([_currentLocation.timestamp timeIntervalSinceDate:[NSDate date]] > 3600)
+        {
+            _locationUpdateIsForNearbyRefresh = YES;
+            [self getLocation];
+        }
+        else
+            [self updateNearbyFeed];
+    }
+    else if (selectedIndex == 2)
+        [self updateGlobalFeed];
+}
+
+# pragma mark - Location
+
+- (void)getLocation
+{
+    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [_locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"has location");
+    _currentLocation = [locations lastObject];
+    [_locationManager stopUpdatingLocation];
+    if (_locationUpdateIsForNearbyRefresh)
+        [self updateNearbyFeed];
 }
 
 @end

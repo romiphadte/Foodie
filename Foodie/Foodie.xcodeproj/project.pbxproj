@@ -22,6 +22,7 @@
 		076CF00118C45908001454CC /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00018C45908001454CC /* location.png */; };
 		076CF00418C57238001454CC /* profile-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00318C57238001454CC /* profile-placeholder.png */; };
 		076CF00618C5748E001454CC /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00518C5748E001454CC /* placeholder.png */; };
+		076CF00918C6C579001454CC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 076CF00818C6C579001454CC /* CoreLocation.framework */; };
 		07C883B218C3FEE300BAF939 /* RNPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */; };
 		07C883B318C3FEE300BAF939 /* RNPFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */; };
 		07C883B818C4003300BAF939 /* Friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B718C4003300BAF939 /* Friends.png */; };
@@ -70,6 +71,7 @@
 		076CF00018C45908001454CC /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		076CF00318C57238001454CC /* profile-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder.png"; sourceTree = "<group>"; };
 		076CF00518C5748E001454CC /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		076CF00818C6C579001454CC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		07C883AF18C3FEE300BAF939 /* RNPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNPFeedViewController.h; path = ../RNPFeedViewController.h; sourceTree = "<group>"; };
 		07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNPFeedViewController.m; path = ../RNPFeedViewController.m; sourceTree = "<group>"; };
 		07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RNPFeedViewController.xib; path = ../RNPFeedViewController.xib; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076CF00918C6C579001454CC /* CoreLocation.framework in Frameworks */,
 				076CEFF318C44873001454CC /* QuartzCore.framework in Frameworks */,
 				E402F8A218C1A7CE0059482C /* CoreGraphics.framework in Frameworks */,
 				E402F8A418C1A7CE0059482C /* UIKit.framework in Frameworks */,
@@ -160,6 +163,7 @@
 		E402F89E18C1A7CE0059482C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				076CF00818C6C579001454CC /* CoreLocation.framework */,
 				076CEFF218C44873001454CC /* QuartzCore.framework */,
 				E402F89F18C1A7CE0059482C /* Foundation.framework */,
 				E402F8A118C1A7CE0059482C /* CoreGraphics.framework */,
