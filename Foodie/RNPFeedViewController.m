@@ -325,7 +325,27 @@
 
 - (void)nextPageNearbyFeed
 {
-    
+    NSLog(@"next page nearby feed");
+    _locationUpdateIsForNearbyRefresh = NO;
+    NSMutableString *str = [NSMutableString stringWithFormat:@"http://foodieapp.herokuapp.com/images_nearby_pagination/cHQdfW429KXwp8FQNK7u/%f/%f/%@", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude, [[_data lastObject] objectForKey:@"dateadded"]];
+    [str replaceOccurrencesOfString:@" " withString:@"%20" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [str length])];
+    NSLog(@"string: %@", str);
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (data)
+         {
+             NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
+//             NSLog(@"info %@", info);
+             _data = [_data arrayByAddingObjectsFromArray:info[0]];
+             NSMutableDictionary *profilePictures = [_profilePictures mutableCopy];
+             [profilePictures addEntriesFromDictionary:info[1]];
+             _profilePictures = [profilePictures copy];
+             [_tableView.infiniteScrollingView stopAnimating];
+             [self.tableView reloadData];
+         }
+     }];
 }
 
 - (void)updateGlobalFeed
