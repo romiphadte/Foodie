@@ -1,0 +1,5 @@
+platform :ios, '5.1'
+pod 'OHAttributedLabel'
+pod 'FXBlurView'
+pod 'SDWebImage'
+pod 'MBProgressHUD'
