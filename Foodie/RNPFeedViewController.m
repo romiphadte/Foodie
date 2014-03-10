@@ -12,6 +12,7 @@
 #import "RNPFeedHeader.h"
 #import "RNPFeedFooter.h"
 #import "UIImageView+WebCache.h"
+#import <SVPullToRefresh/SVPullToRefresh.h>
 #import <OHAttributedLabel/OHASBasicMarkupParser.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <CoreLocation/CoreLocation.h>
@@ -33,6 +34,12 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *feedSelector;
 
+@property (nonatomic, assign) CGFloat lastContentOffset;
+@property (nonatomic, assign) CGFloat effectiveSpeed;
+@property (nonatomic) BOOL isScrollingDownwards;
+
+@property (nonatomic, strong) NSMutableArray *cells;
+
 @end
 
 @implementation RNPFeedViewController
@@ -51,10 +58,17 @@
     [super viewDidLoad];
     [FXBlurView setUpdatesEnabled];
     
+    if (!_cells)
+        _cells = [NSMutableArray array];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"RNPFeedCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"image_cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"RNPBreakCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"break_cell"];
+    [self.tableView addInfiniteScrollingWithActionHandler:^(void) {
+        [self getNextPage];
+    }];
+    [_tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.navigationBar setBarTintColor:[UIColor blackColor]];
     
     [self feedSelectionChanged:_feedSelector];
@@ -76,7 +90,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"%lu", (unsigned long)[_data count]);
     return [_data count];
 }
 
@@ -88,6 +101,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *c;
+    
     if (indexPath.row == 0)
     {
         RNPFeedCell *cell = (RNPFeedCell *)[self.tableView dequeueReusableCellWithIdentifier:@"image_cell"];
@@ -108,9 +122,9 @@
         
         cell.caption.text = [data objectForKey:@"caption"];
         
-        int num_iterations = 2;
+        int num_iterations = 1;
         int blur_radius = 30;
-        int update_interval = .1;
+        int update_interval = .2;
         
         [FXBlurView setUpdatesEnabled];
         [FXBlurView setBlurEnabled:YES];
@@ -119,16 +133,23 @@
         cell.blurView.iterations = num_iterations;
         cell.blurView.blurRadius = blur_radius;
         cell.blurView.updateInterval = update_interval;
-        
-        // configure image
-        // configure label
+
         c = cell;
+        
+        [_cells setObject:cell atIndexedSubscript:indexPath.section];
     }
     else
     {
         RNPBreakCell *cell = (RNPBreakCell *)[self.tableView dequeueReusableCellWithIdentifier:@"break_cell"];
         c = cell;
     }
+
+//    if (indexPath.section != 0 && indexPath.section != 1 && _effectiveSpeed < 0 && _effectiveSpeed > -30)
+//    {
+//        NSLog(@"reload section: %ld", (long)indexPath.section);
+//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section-1] withRowAnimation:UITableViewRowAnimationNone];
+//    }
+    
     return c;
 }
 
@@ -139,6 +160,20 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    NSArray *subviews = [self.tableView subviews];
+    for (UIView *view in subviews)
+    {
+        if ([view isKindOfClass:[UIView class]] && ![view isKindOfClass:[UIImageView class]] && ![view isKindOfClass:[SVInfiniteScrollingView class]] && section > 1)
+        {
+            if (view.frame.origin.y > self.tableView.contentOffset.y)
+            {
+                RNPFeedHeader *headerView = [view subviews][0];
+                headerView.blurView.underlyingView = [_cells[section-1] imageView];
+                break;
+            }
+        }
+    }
+    
     RNPFeedHeader *headerView = [[NSBundle mainBundle] loadNibNamed:@"RNPFeedHeader" owner:self options:Nil][0];
     UIView *view = [[UIView alloc] initWithFrame:[headerView frame]];
     
@@ -181,31 +216,61 @@
     return view;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-//{
-//    RNPFeedFooter *footerView = [[NSBundle mainBundle] loadNibNamed:@"RNPFeedFooter" owner:self options:Nil][0];
-//    UIView *view = [[UIView alloc] initWithFrame:[footerView frame]];
-//    
-//    footerView.blurView.tintColor = [UIColor blackColor];
-//    footerView.blurView.updateInterval = 0;
-//    footerView.blurView.underlyingView = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]].imageView;
-//    footerView.blurView.blurRadius = 175;
-//    
-//    [view addSubview:footerView];
-//    return view;
-//}
+/*
+- (void)scrollViewDidScroll:(UIScrollView *)sender
+{
+//    NSLog(@"offset: %f", self.lastContentOffset - self.tableView.contentOffset.y);
+    
+//    if (self.lastContentOffset > self.tableView.contentOffset.y)
+//        _effectiveSpeed = self.lastContentOffset - self.tableView.contentOffset.y;
+//    else if (self.lastContentOffset < self.tableView.contentOffset.y)
+//        _isScrollingDownwards = YES;
+    
+    _effectiveSpeed = self.lastContentOffset - self.tableView.contentOffset.y;
+    self.lastContentOffset = self.tableView.contentOffset.y;
+}
+ */
+
+/*
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    RNPFeedFooter *footerView = [[NSBundle mainBundle] loadNibNamed:@"RNPFeedFooter" owner:self options:Nil][0];
+    UIView *view = [[UIView alloc] initWithFrame:[footerView frame]];
+    
+    footerView.blurView.tintColor = [UIColor blackColor];
+    footerView.blurView.updateInterval = 0;
+    footerView.blurView.underlyingView = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]].imageView;
+    footerView.blurView.blurRadius = 175;
+    
+    [view addSubview:footerView];
+    return view;
+}
+*/
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 43;
-//}
+/*
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 43;
+}
+ */
 
 #pragma mark - Updating
+
+- (void)getNextPage
+{
+    int selectedIndex = (int)[_feedSelector selectedSegmentIndex];
+    if (selectedIndex == 0)
+        [self nextPageFollowingFeed];
+    else if (selectedIndex == 1)
+        [self nextPageNearbyFeed];
+    else if (selectedIndex == 2)
+        [self nextPageGlobalFeed];
+}
 
 - (void)updateFollowingFeed
 {
@@ -220,12 +285,18 @@
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              NSLog(@"updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
-             NSLog(@"info %@", info);
+//             NSLog(@"info %@", info);
              _data = info[0];
              _profilePictures = info[1];
              [self.tableView reloadData];
+             [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
          }
      }];
+}
+
+- (void)nextPageFollowingFeed
+{
+    
 }
 
 - (void)updateNearbyFeed
@@ -243,12 +314,18 @@
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              NSLog(@"updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
-             NSLog(@"info %@", info);
+//             NSLog(@"info %@", info);
              _data = info[0];
              _profilePictures = info[1];
              [self.tableView reloadData];
+             [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
          }
      }];
+}
+
+- (void)nextPageNearbyFeed
+{
+    
 }
 
 - (void)updateGlobalFeed
@@ -264,9 +341,37 @@
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              NSLog(@"updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
-             NSLog(@"info %@", info);
+//             NSLog(@"info %@", info);
              _data = info[0];
              _profilePictures = info[1];
+             [self.tableView reloadData];
+             [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+         }
+     }];
+}
+
+- (void)nextPageGlobalFeed
+{
+    NSLog(@"next page global feed");
+    NSMutableString *str = [NSMutableString stringWithFormat:@"http://foodieapp.herokuapp.com/images_global_pagination/cHQdfW429KXwp8FQNK7u/%@", [[_data lastObject] objectForKey:@"dateadded"]];
+    [str replaceOccurrencesOfString:@" " withString:@"%20" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [str length])];
+    NSURL *url = [NSURL URLWithString:str];
+    NSLog(@"url: %@", [url description]);
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         NSLog(@"data: %lu", (unsigned long)[data length]);
+         NSLog(@"response: %@", [response description]);
+         NSLog(@"connection error: %@", [connectionError description]);
+         if (data)
+         {
+             NSLog(@"next page global feed updated data");
+             NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
+             _data = [_data arrayByAddingObjectsFromArray:info[0]];
+             NSMutableDictionary *profilePictures = [_profilePictures mutableCopy];
+             [profilePictures addEntriesFromDictionary:info[1]];
+             _profilePictures = [profilePictures copy];
+             [_tableView.infiniteScrollingView stopAnimating];
              [self.tableView reloadData];
          }
      }];
@@ -274,6 +379,7 @@
 
 - (IBAction)feedSelectionChanged:(id)sender
 {
+    [_tableView.infiniteScrollingView stopAnimating];
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     int selectedIndex = (int)[sender selectedSegmentIndex];
     if (selectedIndex == 0)
@@ -291,6 +397,86 @@
     }
     else if (selectedIndex == 2)
         [self updateGlobalFeed];
+}
+
+# pragma mark - Liking
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self handleFavoriteForCellAtIndexPath:indexPath];
+    NSLog(@"%@", [[_data objectAtIndex:indexPath.section] description]);
+}
+
+- (void)handleFavoriteForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    RNPFeedCell *cell = (RNPFeedCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    if ([self imageHasBeenFavoritedAtIndex:indexPath])
+    {
+        [self unlikeImageAtIndexPath:indexPath];
+        [cell unlike];
+    }
+    else
+    {
+        [self likeImageAtIndexPath:indexPath];
+        [cell like];
+    }
+}
+
+- (BOOL)imageHasBeenFavoritedAtIndex:(NSIndexPath *)indexPath
+{
+    NSString *username = @"2neeraj"; // *dummy data
+    
+    NSArray *usernamesThatHaveFavorited = [[_data objectAtIndex:indexPath.section] objectForKey:@"likes"];
+    return [usernamesThatHaveFavorited containsObject:username];
+}
+
+- (void)unlikeImageAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *username = @"2neeraj"; // *dummy data
+    
+    NSString *imageID = [[_data objectAtIndex:indexPath.section] objectForKey:@"id"];
+    NSMutableArray *usernamesThatHaveFavorited = [[[_data objectAtIndex:indexPath.section] objectForKey:@"likes"] mutableCopy];
+    [usernamesThatHaveFavorited removeObject:username];
+    NSMutableArray *localData = [_data mutableCopy];
+    NSMutableDictionary *localImageData = [[localData objectAtIndex:indexPath.section] mutableCopy];
+    [localImageData setObject:[usernamesThatHaveFavorited copy] forKey:@"likes"];
+    [localData setObject:[localImageData copy] atIndexedSubscript:indexPath.section];
+    _data = [localData copy];
+    
+    NSString *str = [NSString stringWithFormat:@"http://foodieapp.herokuapp.com/unlike/cHQdfW429KXwp8FQNK7u/%@/%@", imageID, username];
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:Nil];
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+//    [[self tableView:self.tableView viewForHeaderInSection:indexPath.section] setNeedsDisplay];
+}
+
+- (void)likeImageAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *username = @"2neeraj"; // *dummy data
+    
+    NSString *imageID = [[_data objectAtIndex:indexPath.section] objectForKey:@"id"];
+    NSMutableArray *usernamesThatHaveFavorited = [[[_data objectAtIndex:indexPath.section] objectForKey:@"likes"] mutableCopy];
+    [usernamesThatHaveFavorited addObject:username];
+    NSMutableArray *localData = [_data mutableCopy];
+    NSMutableDictionary *localImageData = [[localData objectAtIndex:indexPath.section] mutableCopy];
+    [localImageData setObject:[usernamesThatHaveFavorited copy] forKey:@"likes"];
+    [localData setObject:[localImageData copy] atIndexedSubscript:indexPath.section];
+    _data = [localData copy];
+    
+    NSString *str = [NSString stringWithFormat:@"http://foodieapp.herokuapp.com/like/cHQdfW429KXwp8FQNK7u/%@/%@", imageID, username];
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:Nil];
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    
+//    RNPFeedHeader *headerView = [[[self tableView:self.tableView viewForHeaderInSection:indexPath.section] subviews] objectAtIndex:0];
+//    int newLikes = [[[headerView likes] text] integerValue] + 1;
+//    NSString *inStr = [NSString stringWithFormat: @"%d", newLikes];
+//    [[headerView likes] setText:inStr];
+//    [headerView setNeedsDisplay];
 }
 
 # pragma mark - Location

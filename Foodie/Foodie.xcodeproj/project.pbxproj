@@ -277,7 +277,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RNP;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Romi Phadte";
 				TargetAttributes = {
 					E402F8BF18C1A7CE0059482C = {

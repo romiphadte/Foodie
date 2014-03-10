@@ -26,6 +26,16 @@
     // Configure the view for the selected state
 }
 
+- (void)like
+{
+    
+}
+
+- (void)unlike
+{
+    
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];

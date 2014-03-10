@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet FXBlurView *blurView;
 @property (weak, nonatomic) IBOutlet UILabel *caption;
 
+- (void)unlike;
+- (void)like;
+
 @end
