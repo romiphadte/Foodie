@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02371CE84C7040D2AA843F23 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6E061241C641BD8196A1DF /* libPods.a */; };
+		070250EB18CE88CF00A4A133 /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 070250EA18CE88CF00A4A133 /* Camera.png */; };
 		076CEFD218C42761001454CC /* RNPFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFD118C42761001454CC /* RNPFeedCell.xib */; };
 		076CEFD418C42BB4001454CC /* RNPBreakCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFD318C42BB4001454CC /* RNPBreakCell.xib */; };
 		076CEFD718C42BFB001454CC /* RNPFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFD618C42BFB001454CC /* RNPFeedCell.m */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070250EA18CE88CF00A4A133 /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
 		076CEFD118C42761001454CC /* RNPFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPFeedCell.xib; sourceTree = "<group>"; };
 		076CEFD318C42BB4001454CC /* RNPBreakCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPBreakCell.xib; sourceTree = "<group>"; };
 		076CEFD518C42BFB001454CC /* RNPFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPFeedCell.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		07C883B618C3FFB900BAF939 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				070250EA18CE88CF00A4A133 /* Camera.png */,
 				07C883B718C4003300BAF939 /* Friends.png */,
 				07C883B918C4017800BAF939 /* Nearby.png */,
 				07C883BB18C401CC00BAF939 /* World.png */,
@@ -315,6 +318,7 @@
 				07C883BC18C401CC00BAF939 /* World.png in Resources */,
 				076CEFFB18C450E7001454CC /* heart.png in Resources */,
 				076CEFD218C42761001454CC /* RNPFeedCell.xib in Resources */,
+				070250EB18CE88CF00A4A133 /* Camera.png in Resources */,
 				E402F8BB18C1A7CE0059482C /* Images.xcassets in Resources */,
 				076CF00118C45908001454CC /* location.png in Resources */,
 				076CEFF118C440B1001454CC /* RNPFeedFooter.xib in Resources */,

@@ -39,6 +39,8 @@
 @property (nonatomic) BOOL isScrollingDownwards;
 
 @property (nonatomic, strong) NSMutableArray *cells;
+@property (weak, nonatomic) IBOutlet FXBlurView *cameraButtonBlurView;
+
 
 @end
 
@@ -68,9 +70,18 @@
     [self.tableView addInfiniteScrollingWithActionHandler:^(void) {
         [self getNextPage];
     }];
-    [_tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.tableView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    UIRefreshControl *pullToRefresh = [[UIRefreshControl alloc] init];
+    pullToRefresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [pullToRefresh addTarget:self action:@selector(update:) forControlEvents:UIControlEventValueChanged];
+    pullToRefresh.tintColor = [UIColor colorWithRed:255/255.0 green:156/255.0 blue:91/255.0 alpha:1];
+    pullToRefresh.attributedTitle = [NSAttributedString attributedStringWithString:@""];
+    pullToRefresh.alpha = .8;
+    [self.tableView addSubview:pullToRefresh];
+    [self configureBlurView];
     [self.navigationBar setBarTintColor:[UIColor blackColor]];
-    
+    [self addSwipeLeft];
+    [self addSwipeRight];
     [self feedSelectionChanged:_feedSelector];
     _HUD = [[MBProgressHUD alloc] initWithView:self.view];
     
@@ -78,6 +89,65 @@
     _locationManager.delegate = self;
     [self getLocation];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)configureBlurView
+{
+    int num_iterations = 2;
+    int blur_radius = 30;
+    int update_interval = .1;
+    _cameraButtonBlurView.layer.cornerRadius = 35;
+    _cameraButtonBlurView.layer.masksToBounds = YES;
+    _cameraButtonBlurView.iterations = num_iterations;
+    [_cameraButtonBlurView setTintColor:[UIColor colorWithRed:243.0/255.0 green:97.0/255.0 blue:0 alpha:1]];
+    [_cameraButtonBlurView setBlurRadius:blur_radius];
+    [_cameraButtonBlurView setUpdateInterval:update_interval];
+}
+
+- (void)addSwipeLeft
+{
+    UISwipeGestureRecognizer *swipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft)];
+    swipeGR.delegate = self;
+    swipeGR.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.tableView addGestureRecognizer:swipeGR];
+}
+
+- (void)swipeLeft
+{
+    if ([_feedSelector selectedSegmentIndex] == 1)
+    {
+        [_feedSelector setSelectedSegmentIndex:0];
+        [self feedSelectionChanged:_feedSelector];
+    }
+    else if ([_feedSelector selectedSegmentIndex] == 2)
+    {
+        [_feedSelector setSelectedSegmentIndex:1];
+        [self feedSelectionChanged:_feedSelector];
+    }
+}
+
+- (void)addSwipeRight
+{
+    UISwipeGestureRecognizer *swipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight)];
+    swipeGR.delegate = self;
+    swipeGR.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    [self.tableView addGestureRecognizer:swipeGR];
+}
+
+- (void)swipeRight
+{
+    if ([_feedSelector selectedSegmentIndex] == 0)
+    {
+        [_feedSelector setSelectedSegmentIndex:1];
+        [self feedSelectionChanged:_feedSelector];
+    }
+    else if ([_feedSelector selectedSegmentIndex] == 1)
+    {
+        [_feedSelector setSelectedSegmentIndex:2];
+        [self feedSelectionChanged:_feedSelector];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -261,6 +331,12 @@
 
 #pragma mark - Updating
 
+- (void)update:(UIRefreshControl *)refreshControl
+{
+    [refreshControl endRefreshing];
+    [self feedSelectionChanged:self.feedSelector];
+}
+
 - (void)getNextPage
 {
     int selectedIndex = (int)[_feedSelector selectedSegmentIndex];
@@ -336,14 +412,19 @@
      {
          if (data)
          {
+             NSLog(@"next page nearby feed updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
-//             NSLog(@"info %@", info);
-             _data = [_data arrayByAddingObjectsFromArray:info[0]];
-             NSMutableDictionary *profilePictures = [_profilePictures mutableCopy];
-             [profilePictures addEntriesFromDictionary:info[1]];
-             _profilePictures = [profilePictures copy];
-             [_tableView.infiniteScrollingView stopAnimating];
-             [self.tableView reloadData];
+             if ([info[0] count] < 1)
+                 _tableView.showsInfiniteScrolling = NO;
+             else
+             {
+                 _data = [_data arrayByAddingObjectsFromArray:info[0]];
+                 NSMutableDictionary *profilePictures = [_profilePictures mutableCopy];
+                 [profilePictures addEntriesFromDictionary:info[1]];
+                 _profilePictures = [profilePictures copy];
+                 [_tableView.infiniteScrollingView stopAnimating];
+                 [self.tableView reloadData];
+             }
          }
      }];
 }
@@ -364,6 +445,7 @@
 //             NSLog(@"info %@", info);
              _data = info[0];
              _profilePictures = info[1];
+             [_tableView.pullToRefreshView stopAnimating];
              [self.tableView reloadData];
              [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
          }
@@ -380,19 +462,24 @@
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
      {
-         NSLog(@"data: %lu", (unsigned long)[data length]);
-         NSLog(@"response: %@", [response description]);
-         NSLog(@"connection error: %@", [connectionError description]);
+//         NSLog(@"data: %lu", (unsigned long)[data length]);
+//         NSLog(@"response: %@", [response description]);
+//         NSLog(@"connection error: %@", [connectionError description]);
          if (data)
          {
              NSLog(@"next page global feed updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
-             _data = [_data arrayByAddingObjectsFromArray:info[0]];
-             NSMutableDictionary *profilePictures = [_profilePictures mutableCopy];
-             [profilePictures addEntriesFromDictionary:info[1]];
-             _profilePictures = [profilePictures copy];
-             [_tableView.infiniteScrollingView stopAnimating];
-             [self.tableView reloadData];
+             if ([info[0] count] < 1)
+                 _tableView.showsInfiniteScrolling = NO;
+             else
+             {
+                 _data = [_data arrayByAddingObjectsFromArray:info[0]];
+                 NSMutableDictionary *profilePictures = [_profilePictures mutableCopy];
+                 [profilePictures addEntriesFromDictionary:info[1]];
+                 _profilePictures = [profilePictures copy];
+                 [_tableView.infiniteScrollingView stopAnimating];
+                 [self.tableView reloadData];
+             }
          }
      }];
 }
@@ -400,6 +487,7 @@
 - (IBAction)feedSelectionChanged:(id)sender
 {
     [_tableView.infiniteScrollingView stopAnimating];
+    _tableView.showsInfiniteScrolling = YES;
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     int selectedIndex = (int)[sender selectedSegmentIndex];
     if (selectedIndex == 0)
