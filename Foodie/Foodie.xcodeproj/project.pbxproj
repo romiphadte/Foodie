@@ -29,6 +29,9 @@
 		07C883B818C4003300BAF939 /* Friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B718C4003300BAF939 /* Friends.png */; };
 		07C883BA18C4017800BAF939 /* Nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B918C4017800BAF939 /* Nearby.png */; };
 		07C883BC18C401CC00BAF939 /* World.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883BB18C401CC00BAF939 /* World.png */; };
+		E4000E7B18CFB651002E1AE4 /* RNPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4000E7918CFB651002E1AE4 /* RNPLoginViewController.m */; };
+		E4000E7C18CFB651002E1AE4 /* RNPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4000E7A18CFB651002E1AE4 /* RNPLoginViewController.xib */; };
+		E4000E7E18CFBD33002E1AE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4000E7D18CFBD33002E1AE4 /* FacebookSDK.framework */; };
 		E402F8A018C1A7CE0059482C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F89F18C1A7CE0059482C /* Foundation.framework */; };
 		E402F8A218C1A7CE0059482C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A118C1A7CE0059482C /* CoreGraphics.framework */; };
 		E402F8A418C1A7CE0059482C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
@@ -82,6 +85,10 @@
 		07C883BB18C401CC00BAF939 /* World.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = World.png; sourceTree = "<group>"; };
 		42320C0FE21C4309A3D82E23 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4C6E061241C641BD8196A1DF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4000E7818CFB651002E1AE4 /* RNPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPLoginViewController.h; sourceTree = "<group>"; };
+		E4000E7918CFB651002E1AE4 /* RNPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPLoginViewController.m; sourceTree = "<group>"; };
+		E4000E7A18CFB651002E1AE4 /* RNPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPLoginViewController.xib; sourceTree = "<group>"; };
+		E4000E7D18CFBD33002E1AE4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		E402F89C18C1A7CE0059482C /* Foodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E402F89F18C1A7CE0059482C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E402F8A118C1A7CE0059482C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4000E7E18CFBD33002E1AE4 /* FacebookSDK.framework in Frameworks */,
 				076CF00918C6C579001454CC /* CoreLocation.framework in Frameworks */,
 				076CEFF318C44873001454CC /* QuartzCore.framework in Frameworks */,
 				E402F8A218C1A7CE0059482C /* CoreGraphics.framework in Frameworks */,
@@ -166,6 +174,7 @@
 		E402F89E18C1A7CE0059482C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4000E7D18CFBD33002E1AE4 /* FacebookSDK.framework */,
 				076CF00818C6C579001454CC /* CoreLocation.framework */,
 				076CEFF218C44873001454CC /* QuartzCore.framework */,
 				E402F89F18C1A7CE0059482C /* Foundation.framework */,
@@ -185,6 +194,9 @@
 				07C883AF18C3FEE300BAF939 /* RNPFeedViewController.h */,
 				07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */,
 				07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */,
+				E4000E7818CFB651002E1AE4 /* RNPLoginViewController.h */,
+				E4000E7918CFB651002E1AE4 /* RNPLoginViewController.m */,
+				E4000E7A18CFB651002E1AE4 /* RNPLoginViewController.xib */,
 				076CEFE118C43351001454CC /* RNPFeedHeader.h */,
 				076CEFE218C43351001454CC /* RNPFeedHeader.m */,
 				076CEFDD18C431F2001454CC /* RNPFeedHeader.xib */,
@@ -318,6 +330,7 @@
 				07C883BC18C401CC00BAF939 /* World.png in Resources */,
 				076CEFFB18C450E7001454CC /* heart.png in Resources */,
 				076CEFD218C42761001454CC /* RNPFeedCell.xib in Resources */,
+				E4000E7C18CFB651002E1AE4 /* RNPLoginViewController.xib in Resources */,
 				070250EB18CE88CF00A4A133 /* Camera.png in Resources */,
 				E402F8BB18C1A7CE0059482C /* Images.xcassets in Resources */,
 				076CF00118C45908001454CC /* location.png in Resources */,
@@ -382,6 +395,7 @@
 				076CEFDA18C42E95001454CC /* RNPBreakCell.m in Sources */,
 				076CEFE318C43351001454CC /* RNPFeedHeader.m in Sources */,
 				076CEFF018C440B1001454CC /* RNPFeedFooter.m in Sources */,
+				E4000E7B18CFB651002E1AE4 /* RNPLoginViewController.m in Sources */,
 				076CEFD718C42BFB001454CC /* RNPFeedCell.m in Sources */,
 				07C883B218C3FEE300BAF939 /* RNPFeedViewController.m in Sources */,
 				E402F8AC18C1A7CE0059482C /* main.m in Sources */,
@@ -507,6 +521,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Romi/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Foodie/Foodie-Prefix.pch";
 				INFOPLIST_FILE = "Foodie/Foodie-Info.plist";
@@ -521,6 +539,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Romi/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Foodie/Foodie-Prefix.pch";
 				INFOPLIST_FILE = "Foodie/Foodie-Info.plist";
