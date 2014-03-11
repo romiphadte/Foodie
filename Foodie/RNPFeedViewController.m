@@ -350,7 +350,7 @@
 
 - (void)updateFollowingFeed
 {
-    NSLog(@"update global feed");
+    NSLog(@"update following feed");
     NSString *str = @"http://foodieapp.herokuapp.com/images_following/cHQdfW429KXwp8FQNK7u/2neeraj"; //need to add user info
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
@@ -361,18 +361,48 @@
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              NSLog(@"updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
-//             NSLog(@"info %@", info);
-             _data = info[0];
-             _profilePictures = info[1];
-             [self.tableView reloadData];
-             [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+             if ([info count] > 1)
+             {
+                 _data = info[0];
+                 _profilePictures = info[1];
+                 [self.tableView reloadData];
+                 [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+             }
+             else
+             {
+                 // false
+             }
          }
      }];
 }
 
 - (void)nextPageFollowingFeed
 {
-    
+    NSLog(@"update following feed");
+    NSMutableString *str = [NSMutableString stringWithFormat:@"http://foodieapp.herokuapp.com/images_following_pagination/cHQdfW429KXwp8FQNK7u/%@/%@", @"2neeraj", [[_data lastObject] objectForKey:@"dateadded"]];
+    [str replaceOccurrencesOfString:@" " withString:@"%20" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [str length])];
+    NSLog(@"%@", str);
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (data)
+         {
+             NSLog(@"updated data");
+             NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
+             if ([info[0] count] < 1)
+                 _tableView.showsInfiniteScrolling = NO;
+             else
+             {
+                 _data = [_data arrayByAddingObjectsFromArray:info[0]];
+                 NSMutableDictionary *profilePictures = [_profilePictures mutableCopy];
+                 [profilePictures addEntriesFromDictionary:info[1]];
+                 _profilePictures = [profilePictures copy];
+                 [_tableView.infiniteScrollingView stopAnimating];
+                 [self.tableView reloadData];
+             }
+         }
+     }];
 }
 
 - (void)updateNearbyFeed
@@ -391,10 +421,17 @@
              NSLog(@"updated data");
              NSArray *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:Nil];
 //             NSLog(@"info %@", info);
-             _data = info[0];
-             _profilePictures = info[1];
-             [self.tableView reloadData];
-             [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+             if ([info count] > 1)
+             {
+                 _data = info[0];
+                 _profilePictures = info[1];
+                 [self.tableView reloadData];
+                 [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+             }
+             else
+             {
+                 // false
+             }
          }
      }];
 }
@@ -491,8 +528,7 @@
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     int selectedIndex = (int)[sender selectedSegmentIndex];
     if (selectedIndex == 0)
-        [self updateGlobalFeed];
-//        [self updateFollowingFeed];
+        [self updateFollowingFeed];
     else if (selectedIndex == 1)
     {
         if ([_currentLocation.timestamp timeIntervalSinceDate:[NSDate date]] > 3600)
