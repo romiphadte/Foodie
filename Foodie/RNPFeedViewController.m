@@ -16,6 +16,7 @@
 #import <OHAttributedLabel/OHASBasicMarkupParser.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <CoreLocation/CoreLocation.h>
+#import "RNPCameraOverlayViewController.h"
 
 
 @interface RNPFeedViewController ()
@@ -630,6 +631,13 @@
     _locationManager.distanceFilter = kCLDistanceFilterNone;
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [_locationManager startUpdatingLocation];
+}
+- (IBAction)takePic:(id)sender {
+    RNPCameraOverlayViewController *view=[[RNPCameraOverlayViewController alloc] init];
+   [self presentViewController:view animated:YES completion:^{
+       NSLog(@"camera view");
+   }];
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

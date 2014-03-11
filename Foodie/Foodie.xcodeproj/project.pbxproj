@@ -41,6 +41,10 @@
 		E402F8C418C1A7CE0059482C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
 		E402F8CC18C1A7CE0059482C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E402F8CA18C1A7CE0059482C /* InfoPlist.strings */; };
 		E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8CD18C1A7CE0059482C /* FoodieTests.m */; };
+		E42BBE9118CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
+		E42BBE9218CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
+		E42BBE9318CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
+		E42BBE9418CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +102,9 @@
 		E402F8C918C1A7CE0059482C /* FoodieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodieTests-Info.plist"; sourceTree = "<group>"; };
 		E402F8CB18C1A7CE0059482C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E402F8CD18C1A7CE0059482C /* FoodieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodieTests.m; sourceTree = "<group>"; };
+		E42BBE8E18CEC3B80068761A /* RNPCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPCameraOverlayViewController.h; sourceTree = "<group>"; };
+		E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPCameraOverlayViewController.m; sourceTree = "<group>"; };
+		E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPCameraOverlayViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +192,9 @@
 				07C883AF18C3FEE300BAF939 /* RNPFeedViewController.h */,
 				07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */,
 				07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */,
+				E42BBE8E18CEC3B80068761A /* RNPCameraOverlayViewController.h */,
+				E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */,
+				E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */,
 				076CEFE118C43351001454CC /* RNPFeedHeader.h */,
 				076CEFE218C43351001454CC /* RNPFeedHeader.m */,
 				076CEFDD18C431F2001454CC /* RNPFeedHeader.xib */,
@@ -323,6 +333,7 @@
 				076CF00118C45908001454CC /* location.png in Resources */,
 				076CEFF118C440B1001454CC /* RNPFeedFooter.xib in Resources */,
 				076CF00418C57238001454CC /* profile-placeholder.png in Resources */,
+				E42BBE9318CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */,
 				E402F8AA18C1A7CE0059482C /* InfoPlist.strings in Resources */,
 				076CEFD418C42BB4001454CC /* RNPBreakCell.xib in Resources */,
 				076CEFF718C44E61001454CC /* comment.png in Resources */,
@@ -336,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E402F8CC18C1A7CE0059482C /* InfoPlist.strings in Resources */,
+				E42BBE9418CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +393,7 @@
 			files = (
 				076CEFDA18C42E95001454CC /* RNPBreakCell.m in Sources */,
 				076CEFE318C43351001454CC /* RNPFeedHeader.m in Sources */,
+				E42BBE9118CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */,
 				076CEFF018C440B1001454CC /* RNPFeedFooter.m in Sources */,
 				076CEFD718C42BFB001454CC /* RNPFeedCell.m in Sources */,
 				07C883B218C3FEE300BAF939 /* RNPFeedViewController.m in Sources */,
@@ -393,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42BBE9218CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */,
 				E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
