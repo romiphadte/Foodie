@@ -8,6 +8,7 @@
 
 #import "RNPAppDelegate.h"
 #import "RNPFeedViewController.h"
+#import "RNPFeedNavigationController.h"
 
 @implementation RNPAppDelegate
 
@@ -17,7 +18,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     RNPFeedViewController *feedViewController = [[RNPFeedViewController alloc] initWithNibName:@"RNPFeedViewController" bundle:[NSBundle mainBundle]];
-    self.window.rootViewController = feedViewController;
+    feedViewController.navigationItem.titleView = [[NSBundle mainBundle] loadNibNamed:@"RNPFeedNavigationItemView" owner:self options:nil][0];
+    
+    RNPFeedNavigationController *navController = [[RNPFeedNavigationController alloc] initWithRootViewController:feedViewController];
+    navController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }

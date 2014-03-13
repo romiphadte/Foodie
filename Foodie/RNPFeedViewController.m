@@ -11,6 +11,7 @@
 #import "RNPBreakCell.h"
 #import "RNPFeedHeader.h"
 #import "RNPFeedFooter.h"
+#import "RNPFeedNavigationItemView.h"
 #import "UIImageView+WebCache.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
 #import <OHAttributedLabel/OHASBasicMarkupParser.h>
@@ -21,7 +22,6 @@
 @interface RNPFeedViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @property (strong, nonatomic) MBProgressHUD *HUD;
 
@@ -31,8 +31,6 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (nonatomic) BOOL locationUpdateIsForNearbyRefresh;
-
-@property (weak, nonatomic) IBOutlet UISegmentedControl *feedSelector;
 
 @property (nonatomic, assign) CGFloat lastContentOffset;
 @property (nonatomic, assign) CGFloat effectiveSpeed;
@@ -79,15 +77,17 @@
     pullToRefresh.alpha = .8;
     [self.tableView addSubview:pullToRefresh];
     [self configureBlurView];
-    [self.navigationBar setBarTintColor:[UIColor blackColor]];
     [self addSwipeLeft];
     [self addSwipeRight];
-    [self feedSelectionChanged:_feedSelector];
     _HUD = [[MBProgressHUD alloc] initWithView:self.view];
     
     self.locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     [self getLocation];
+    [(RNPFeedNavigationItemView *)self.navigationItem.titleView setDelegate:self];
+    RNPFeedNavigationItemView *itemView = (RNPFeedNavigationItemView *)self.navigationItem.titleView;
+    [itemView setSelectedIndex:itemView.segmentedControl.selectedSegmentIndex];
+    [(RNPFeedNavigationItemView *)self.navigationItem.titleView setDelegate:self];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -115,16 +115,11 @@
 
 - (void)swipeLeft
 {
-    if ([_feedSelector selectedSegmentIndex] == 1)
-    {
-        [_feedSelector setSelectedSegmentIndex:0];
-        [self feedSelectionChanged:_feedSelector];
-    }
-    else if ([_feedSelector selectedSegmentIndex] == 2)
-    {
-        [_feedSelector setSelectedSegmentIndex:1];
-        [self feedSelectionChanged:_feedSelector];
-    }
+    UISegmentedControl *feedSelector = [(RNPFeedNavigationItemView *)self.navigationItem.titleView segmentedControl];
+    if ([feedSelector selectedSegmentIndex] == 1)
+        [(RNPFeedNavigationItemView *)self.navigationItem.titleView setSelectedIndex:0];
+    else if ([feedSelector selectedSegmentIndex] == 2)
+        [(RNPFeedNavigationItemView *)self.navigationItem.titleView setSelectedIndex:1];
 }
 
 - (void)addSwipeRight
@@ -138,16 +133,11 @@
 
 - (void)swipeRight
 {
-    if ([_feedSelector selectedSegmentIndex] == 0)
-    {
-        [_feedSelector setSelectedSegmentIndex:1];
-        [self feedSelectionChanged:_feedSelector];
-    }
-    else if ([_feedSelector selectedSegmentIndex] == 1)
-    {
-        [_feedSelector setSelectedSegmentIndex:2];
-        [self feedSelectionChanged:_feedSelector];
-    }
+    UISegmentedControl *feedSelector = [(RNPFeedNavigationItemView *)self.navigationItem.titleView segmentedControl];
+    if ([feedSelector selectedSegmentIndex] == 0)
+        [(RNPFeedNavigationItemView *)self.navigationItem.titleView setSelectedIndex:1];
+    else if ([feedSelector selectedSegmentIndex] == 1)
+        [(RNPFeedNavigationItemView *)self.navigationItem.titleView setSelectedIndex:2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -171,7 +161,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *c;
-    
     if (indexPath.row == 0)
     {
         RNPFeedCell *cell = (RNPFeedCell *)[self.tableView dequeueReusableCellWithIdentifier:@"image_cell"];
@@ -233,7 +222,7 @@
     NSArray *subviews = [self.tableView subviews];
     for (UIView *view in subviews)
     {
-        if ([view isKindOfClass:[UIView class]] && ![view isKindOfClass:[UIImageView class]] && ![view isKindOfClass:[SVInfiniteScrollingView class]] && section > 1)
+        if ([view isKindOfClass:[UIView class]] && ![view isKindOfClass:[UIImageView class]] && ![view isKindOfClass:[SVInfiniteScrollingView class]] && ![view isKindOfClass:[UIRefreshControl class]]  && section > 1)
         {
             if (view.frame.origin.y > self.tableView.contentOffset.y)
             {
@@ -334,12 +323,14 @@
 - (void)update:(UIRefreshControl *)refreshControl
 {
     [refreshControl endRefreshing];
-    [self feedSelectionChanged:self.feedSelector];
+    RNPFeedNavigationItemView *itemView = (RNPFeedNavigationItemView *)self.navigationItem.titleView;
+    [itemView setSelectedIndex:itemView.segmentedControl.selectedSegmentIndex];
 }
 
 - (void)getNextPage
 {
-    int selectedIndex = (int)[_feedSelector selectedSegmentIndex];
+    UISegmentedControl *feedSelector = [(RNPFeedNavigationItemView *)self.navigationItem.titleView segmentedControl];
+    int selectedIndex = (int)[feedSelector selectedSegmentIndex];
     if (selectedIndex == 0)
         [self nextPageFollowingFeed];
     else if (selectedIndex == 1)
@@ -521,12 +512,11 @@
      }];
 }
 
-- (IBAction)feedSelectionChanged:(id)sender
+- (void)setFeedSelection:(NSInteger)selectedIndex
 {
     [_tableView.infiniteScrollingView stopAnimating];
     _tableView.showsInfiniteScrolling = YES;
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    int selectedIndex = (int)[sender selectedSegmentIndex];
     if (selectedIndex == 0)
         [self updateFollowingFeed];
     else if (selectedIndex == 1)
