@@ -18,6 +18,7 @@
 #import <OHAttributedLabel/OHASBasicMarkupParser.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <CoreLocation/CoreLocation.h>
+#import <FontAwesome+iOS/NSString+FontAwesome.h>
 
 
 @interface RNPFeedViewController ()
@@ -25,9 +26,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) MBProgressHUD *HUD;
-
-//@property (strong, nonatomic) NSArray *data;
-//@property (strong, nonatomic) NSDictionary *profilePictures;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
@@ -40,6 +38,7 @@
 @property (nonatomic, strong) NSMutableArray *cells;
 @property (weak, nonatomic) IBOutlet FXBlurView *cameraButtonBlurView;
 
+@property (strong, nonatomic) UIColor *color;
 
 @end
 
@@ -61,7 +60,7 @@
     
     if (!_cells)
         _cells = [NSMutableArray array];
-    
+    _color = [UIColor colorWithRed:146/255.0 green:209/255.0 blue:105/255.0 alpha:1];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"RNPFeedCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"image_cell"];
@@ -73,7 +72,7 @@
     UIRefreshControl *pullToRefresh = [[UIRefreshControl alloc] init];
     pullToRefresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     [pullToRefresh addTarget:self action:@selector(update:) forControlEvents:UIControlEventValueChanged];
-    pullToRefresh.tintColor = [UIColor colorWithRed:255/255.0 green:156/255.0 blue:91/255.0 alpha:1];
+    pullToRefresh.tintColor = _color;
     pullToRefresh.attributedTitle = [NSAttributedString attributedStringWithString:@""];
     pullToRefresh.alpha = .8;
     [self.tableView addSubview:pullToRefresh];
@@ -241,7 +240,7 @@
     
     NSDictionary *data = [_data objectAtIndex:section];
     
-    headerView.username.text = [data objectForKey:@"username"];
+    headerView.username.text = [data objectForKey:@"dish"];
     headerView.restaurantID = [data objectForKey:@"restaurantid"];
     headerView.restaurantName = [data objectForKey:@"restaurantname"];
     
@@ -267,16 +266,29 @@
     
     headerView.profilePicture.layer.cornerRadius = 19;
     headerView.profilePicture.layer.masksToBounds = YES;
-    
     headerView.profilePicture.layer.borderColor = [UIColor blackColor].CGColor;
     headerView.profilePicture.layer.borderWidth = 1;
     
-    headerView.label.text = [NSString stringWithFormat:@"*%@* at *%@*", [data objectForKey:@"dish"], [data objectForKey:@"restaurantname"]];
+    NSString *locationString = [NSString stringWithFormat:@"%@ %@",[NSString fontAwesomeIconStringForEnum:FAIconMapMarker], [data objectForKey:@"restaurantname"]];
+    headerView.label.font = [UIFont fontWithName:kFontAwesomeFamilyName size:11];
+    headerView.label.text = locationString;
+    [headerView.label sizeToFit];
+    headerView.label.layer.cornerRadius = 10;
+    headerView.label.backgroundColor = [UIColor colorWithRed:34/255.0 green:113/255.0 blue:210/255.0 alpha:1];
+    headerView.label.frame = CGRectMake(headerView.label.frame.origin.x, headerView.label.frame.origin.y+1, headerView.label.frame.size.width+14, headerView.label.frame.size.height+8);
+    
+    NSString *userString = [NSString stringWithFormat:@"%@ %@", [NSString fontAwesomeIconStringForEnum:FAIconUser], [data objectForKey:@"username"]];
+    headerView.usernameLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:11];
+    headerView.usernameLabel.text = userString;
+    [headerView.usernameLabel sizeToFit];
+    headerView.usernameLabel.layer.cornerRadius = 10;
+    headerView.usernameLabel.backgroundColor = [UIColor colorWithRed:223/255.0 green:65/255.0 blue:44/255.0 alpha:1];
+    headerView.usernameLabel.frame = CGRectMake(headerView.label.frame.origin.x + headerView.label.frame.size.width + 5, headerView.label.frame.origin.y, headerView.usernameLabel.frame.size.width+14, headerView.label.frame.size.height);
     
     headerView.likes.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[data objectForKey:@"likes"] count]];
     
-    NSMutableAttributedString* basicMarkupString = [OHASBasicMarkupParser attributedStringByProcessingMarkupInAttributedString:headerView.label.attributedText];
-    headerView.label.attributedText = basicMarkupString;
+//    NSMutableAttributedString* basicMarkupString = [OHASBasicMarkupParser attributedStringByProcessingMarkupInAttributedString:headerView.label.attributedText];
+//    headerView.label.attributedText = basicMarkupString;
     
     [view addSubview:headerView];
     return view;
@@ -315,7 +327,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 54;
 }
 
 /*
@@ -523,6 +535,7 @@
 {
     [_tableView.infiniteScrollingView stopAnimating];
     _tableView.showsInfiniteScrolling = YES;
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if (selectedIndex == 0)
         [self updateFollowingFeed];

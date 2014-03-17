@@ -89,6 +89,7 @@
 		07B6F30618D69D37004BD406 /* RNPRestaurantFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPRestaurantFeedViewController.h; sourceTree = "<group>"; };
 		07B6F30718D69D37004BD406 /* RNPRestaurantFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPRestaurantFeedViewController.m; sourceTree = "<group>"; };
 		07B6F30818D69D37004BD406 /* RNPRestaurantFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPRestaurantFeedViewController.xib; sourceTree = "<group>"; };
+		07B6F30B18D78137004BD406 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		07C883AF18C3FEE300BAF939 /* RNPFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNPFeedViewController.h; path = ../RNPFeedViewController.h; sourceTree = "<group>"; };
 		07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNPFeedViewController.m; path = ../RNPFeedViewController.m; sourceTree = "<group>"; };
 		07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RNPFeedViewController.xib; path = ../RNPFeedViewController.xib; sourceTree = "<group>"; };
@@ -231,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				07C883B618C3FFB900BAF939 /* Feed */,
+				07B6F30B18D78137004BD406 /* FontAwesome.ttf */,
 				E402F8A718C1A7CE0059482C /* Foodie-Info.plist */,
 				E402F8A818C1A7CE0059482C /* InfoPlist.strings */,
 				E402F8AB18C1A7CE0059482C /* main.m */,

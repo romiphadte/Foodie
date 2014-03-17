@@ -1,4 +1,5 @@
 PODS:
+  - FontAwesome+iOS (0.1.1)
   - FXBlurView (1.5.3)
   - MBProgressHUD (0.8)
   - OHAttributedLabel (3.5.3)
@@ -8,6 +9,7 @@ PODS:
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
+  - FontAwesome+iOS
   - FXBlurView
   - MBProgressHUD
   - OHAttributedLabel
@@ -15,6 +17,7 @@ DEPENDENCIES:
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
+  FontAwesome+iOS: 243c5309e90d5788909b0f859f75ecff4a20f88f
   FXBlurView: 8d662dd5b4ba15a1a0e97235501326fbdfb2b755
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   OHAttributedLabel: 985e4b57eec0dc6add79179ac47ec888b8a914e7

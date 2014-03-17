@@ -18,7 +18,7 @@
                         <segment title="" image="Nearby.png" width="36"/>
                         <segment title="" image="World.png" width="36"/>
                     </segments>
-                    <color key="tintColor" red="0.95294117647058818" green="0.38039215686274508" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.5725490196078431" green="0.81960784313725488" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="selectedIndexChanged:" destination="CLY-rc-Hks" eventType="valueChanged" id="PFr-du-eET"/>
                     </connections>

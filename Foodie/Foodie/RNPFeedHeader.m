@@ -27,15 +27,15 @@
 //    NSLog(@"username bounds: %@", NSStringFromCGRect([_username bounds]));
 //    NSLog(@"profile picture bounds: %@", NSStringFromCGRect([_profilePicture bounds]));
 //    NSLog(@"touch location: %@", NSStringFromCGPoint([touch locationInView:self]));
-    CGRect profilePicture = CGRectMake(6, 6, 38, 38);
-    CGRect label = CGRectMake(60, 23, 309, 27);
-    CGRect username = CGRectMake(50, 5, 239, 20);
+    CGRect profilePicture = _profilePicture.frame;
+    CGRect restaurant = _label.frame;
     CGRect likes = CGRectMake(289, 0, 30, 21);
+    CGRect username = _usernameLabel.frame;
     if (CGRectContainsPoint(profilePicture, touch) || CGRectContainsPoint(username, touch))
-        [_delegate touchedUser:_username.text];
+        [_delegate touchedUser:[_usernameLabel.text substringFromIndex:2]];
     else if (CGRectContainsPoint(likes, touch))
         NSLog(@"touched likes");
-    else if (CGRectContainsPoint(label, touch))
+    else if (CGRectContainsPoint(restaurant, touch))
         [_delegate touchedRestaurant:_restaurantName withID:_restaurantID];
 }
 

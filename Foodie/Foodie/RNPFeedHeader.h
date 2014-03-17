@@ -27,5 +27,6 @@
 @property (strong, nonatomic) NSString *restaurantName;
 @property (strong, nonatomic) NSString *restaurantID;
 @property (strong, nonatomic) id <RNPHeaderTouchDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @end
