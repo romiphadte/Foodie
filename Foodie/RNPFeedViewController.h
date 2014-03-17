@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "RNPFeedNavigationItemView.h"
+#import "RNPFeedHeader.h"
 
-@interface RNPFeedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, RNPFeedNavigationItemViewDelegate>
+@interface RNPFeedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, RNPFeedNavigationItemViewDelegate, RNPHeaderTouchDelegate>
+
+@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSDictionary *profilePictures;
 
 @end

@@ -32,12 +32,11 @@
     CGRect username = CGRectMake(50, 5, 239, 20);
     CGRect likes = CGRectMake(289, 0, 30, 21);
     if (CGRectContainsPoint(profilePicture, touch) || CGRectContainsPoint(username, touch))
-        NSLog(@"touched username");
+        [_delegate touchedUser:_username.text];
     else if (CGRectContainsPoint(likes, touch))
         NSLog(@"touched likes");
     else if (CGRectContainsPoint(label, touch))
-        NSLog(@"touched restaurant");
-    
+        [_delegate touchedRestaurant:_restaurantName withID:_restaurantID];
 }
 
 /*

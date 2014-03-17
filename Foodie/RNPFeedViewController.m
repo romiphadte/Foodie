@@ -12,6 +12,7 @@
 #import "RNPFeedHeader.h"
 #import "RNPFeedFooter.h"
 #import "RNPFeedNavigationItemView.h"
+#import "RNPRestaurantFeedViewController.h"
 #import "UIImageView+WebCache.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
 #import <OHAttributedLabel/OHASBasicMarkupParser.h>
@@ -25,8 +26,8 @@
 
 @property (strong, nonatomic) MBProgressHUD *HUD;
 
-@property (strong, nonatomic) NSArray *data;
-@property (strong, nonatomic) NSDictionary *profilePictures;
+//@property (strong, nonatomic) NSArray *data;
+//@property (strong, nonatomic) NSDictionary *profilePictures;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
@@ -241,11 +242,15 @@
     NSDictionary *data = [_data objectAtIndex:section];
     
     headerView.username.text = [data objectForKey:@"username"];
+    headerView.restaurantID = [data objectForKey:@"restaurantid"];
+    headerView.restaurantName = [data objectForKey:@"restaurantname"];
     
     headerView.blurView.tintColor = [UIColor blackColor];
     headerView.blurView.updateInterval = 0;
     headerView.blurView.underlyingView = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]].imageView;
     headerView.blurView.blurRadius = 40;
+    
+    headerView.delegate = self;
     
     NSString *str = [_profilePictures objectForKey:[data objectForKey:@"username"]];
     NSURL *url = [NSURL URLWithString:str];
@@ -631,6 +636,21 @@
     [_locationManager stopUpdatingLocation];
     if (_locationUpdateIsForNearbyRefresh)
         [self updateNearbyFeed];
+}
+
+# pragma mark - Header tapping
+
+- (void)touchedRestaurant:(NSString *)restaurantName withID:(NSString *)restaurantID
+{
+    RNPRestaurantFeedViewController *restaurantFeedVC = [[RNPRestaurantFeedViewController alloc] initWithRestaurant:restaurantName withID:restaurantID];
+    restaurantFeedVC.title = restaurantName;
+    [self.navigationController pushViewController:restaurantFeedVC animated:YES];
+    NSLog(@"touched restaurant: %@ with ID: %@", restaurantName, restaurantID);
+}
+
+- (void)touchedUser:(NSString *)username
+{
+    NSLog(@"touched user: %@", username);
 }
 
 @end
