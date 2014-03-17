@@ -220,11 +220,13 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     NSArray *subviews = [self.tableView subviews];
+//    NSLog(@"subviews: %@", [subviews description]);
+//    NSLog(@"offset: %f", self.tableView.contentOffset.y);
     for (UIView *view in subviews)
     {
         if ([view isKindOfClass:[UIView class]] && ![view isKindOfClass:[UIImageView class]] && ![view isKindOfClass:[SVInfiniteScrollingView class]] && ![view isKindOfClass:[UIRefreshControl class]]  && section > 1)
         {
-            if (view.frame.origin.y > self.tableView.contentOffset.y)
+            if (view.frame.origin.y - self.tableView.contentOffset.y > 70)
             {
                 RNPFeedHeader *headerView = [view subviews][0];
                 headerView.blurView.underlyingView = [_cells[section-1] imageView];
