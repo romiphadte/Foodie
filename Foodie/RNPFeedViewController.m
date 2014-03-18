@@ -28,7 +28,6 @@
 @property (strong, nonatomic) MBProgressHUD *HUD;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *currentLocation;
 @property (nonatomic) BOOL locationUpdateIsForNearbyRefresh;
 
 @property (nonatomic, assign) CGFloat lastContentOffset;

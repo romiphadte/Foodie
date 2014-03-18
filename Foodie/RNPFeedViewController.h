@@ -16,4 +16,6 @@
 @property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) NSDictionary *profilePictures;
 
+@property (strong, nonatomic) CLLocation *currentLocation;
+
 @end
