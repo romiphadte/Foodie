@@ -20,18 +20,19 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-#ifdef UPLOADER
-    RNPCameraOverlayViewController *rootController= [[RNPCameraOverlayViewController alloc] initWithNibName:@"RNPCameraOverlayViewController" bundle:[NSBundle mainBundle]];
-#else
     UIViewController *rootController;
     if([[RNPUserSession sharedInstance] isLoggedIn]){
         rootController = [[RNPFeedViewController alloc] initWithNibName:@"RNPFeedViewController" bundle:[NSBundle mainBundle]];
     }
     else{
+#ifdef UPLOADER
+        rootController= [[RNPCameraOverlayViewController alloc] initWithNibName:@"RNPCameraOverlayViewController" bundle:[NSBundle mainBundle]];
+#else
         rootController = [[RNPLoginViewController alloc] initWithNibName:@"RNPLoginViewController" bundle:[NSBundle mainBundle]];
+#endif
     }
     
-#endif
+
     self.window.rootViewController = rootController;
     [self.window makeKeyAndVisible];
     return YES;

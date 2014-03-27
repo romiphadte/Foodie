@@ -10,7 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "RNPUserSession.h"
 #import "RNPFeedViewController.h"
-#import <FXBlurView/FXBlurView.h>
+#import "RNPCameraOverlayViewController.h"
 
 @interface RNPLoginViewController ()
 
@@ -46,11 +46,15 @@
 
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    
-    
+#ifdef UPLOADER
+    [self presentViewController:[[RNPCameraOverlayViewController alloc]init] animated:NO completion:^{
+        
+    }];
+#else
     [self presentViewController:[[RNPFeedViewController alloc] init] animated:NO completion:^{
         NSLog(@"loginBro");
     }];
+#endif
     
 }
 

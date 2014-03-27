@@ -9,6 +9,8 @@
 #import "RNPImageInfoViewController.h"
 #import <AmazonS3Client.h>
 #import <S3/S3TransferManager.h>
+#import "RNPFeedViewController.h"
+#import "RNPUserSession.h"
 
 @interface RNPImageInfoViewController ()
 
@@ -96,10 +98,13 @@ BOOL isUp=false;
 - (IBAction)done:(id)sender {
     
     [self upload];
-
-    [self dismissViewControllerAnimated:NO completion:^{
-    }];
     
+    RNPFeedViewController* root=[[RNPFeedViewController alloc]init];
+    [[UIApplication sharedApplication] delegate].window.rootViewController=root;
+    [[[UIApplication sharedApplication] delegate].window makeKeyAndVisible];
+    [self dismissViewControllerAnimated:NO completion:^{
+        NSLog(@"uploaded");
+    }];
     
 }
 
@@ -126,10 +131,17 @@ else {
     
     self.tm = [S3TransferManager new];
     self.tm.s3 = s3;
-    [self.tm uploadData:(UIImagePNGRepresentation(self.savedImage)) bucket:@"rnpfoodie" key:@"yo"];
+    NSString *pictureKey=[[RNPUserSession sharedInstance].FBuser.id stringByAppendingString:[[NSDate date] description]];
+    
+    [self.tm uploadData:(UIImagePNGRepresentation(self.savedImage)) bucket:@"rnpfoodie" key:pictureKey];
     
     
 }
 
+- (IBAction)back:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:^{
+        NSLog(@"Back");
+    }];
+}
 
 @end

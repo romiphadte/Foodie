@@ -45,6 +45,8 @@
 		E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8CD18C1A7CE0059482C /* FoodieTests.m */; };
 		E40C815118E4399800B83922 /* tomato.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E40C815018E4399800B83922 /* tomato.jpeg */; };
 		E40C815218E4399800B83922 /* tomato.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E40C815018E4399800B83922 /* tomato.jpeg */; };
+		E40C815418E43E3600B83922 /* RNPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4000E7918CFB651002E1AE4 /* RNPLoginViewController.m */; };
+		E40C815618E43E4D00B83922 /* RNPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4000E7A18CFB651002E1AE4 /* RNPLoginViewController.xib */; };
 		E4156F7218E22730006F6033 /* RNPBreakCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFD918C42E95001454CC /* RNPBreakCell.m */; };
 		E4156F7318E22730006F6033 /* RNPFeedHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFE218C43351001454CC /* RNPFeedHeader.m */; };
 		E4156F7418E22730006F6033 /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
@@ -606,6 +608,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40C815618E43E4D00B83922 /* RNPLoginViewController.xib in Resources */,
 				E4156F8318E22730006F6033 /* RNPFeedViewController.xib in Resources */,
 				E4156F8418E22730006F6033 /* RNPFeedHeader.xib in Resources */,
 				E4156F8518E22730006F6033 /* Friends.png in Resources */,
@@ -728,6 +731,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40C815418E43E3600B83922 /* RNPLoginViewController.m in Sources */,
 				E4156F9E18E2527E006F6033 /* RNPAppDelegate.m in Sources */,
 				E4156F7218E22730006F6033 /* RNPBreakCell.m in Sources */,
 				E4156F7318E22730006F6033 /* RNPFeedHeader.m in Sources */,
