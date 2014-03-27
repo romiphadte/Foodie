@@ -1,4 +1,50 @@
 PODS:
+  - AWSiOSSDK (1.7.1):
+    - AWSiOSSDK/AutoScaling
+    - AWSiOSSDK/CloudWatch
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/EC2
+    - AWSiOSSDK/ElasticLoadBalancing
+    - AWSiOSSDK/Runtime
+    - AWSiOSSDK/S3
+    - AWSiOSSDK/SES
+    - AWSiOSSDK/SimpleDB
+    - AWSiOSSDK/SNS
+    - AWSiOSSDK/SQS
+    - AWSiOSSDK/STS
+  - AWSiOSSDK/AutoScaling (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/CloudWatch (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/DynamoDB (1.7.1):
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/EC2 (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/ElasticLoadBalancing (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/Runtime (1.7.1)
+  - AWSiOSSDK/S3 (1.7.1):
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/SES (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/SimpleDB (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/SNS (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/SQS (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - AWSiOSSDK/STS (1.7.1):
+    - AWSiOSSDK/DynamoDB
+    - AWSiOSSDK/Runtime
+  - EasyTableView (1.1.1)
   - FXBlurView (1.5.3)
   - MBProgressHUD (0.8)
   - OHAttributedLabel (3.5.3)
@@ -8,6 +54,8 @@ PODS:
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
+  - AWSiOSSDK
+  - EasyTableView
   - FXBlurView
   - MBProgressHUD
   - OHAttributedLabel
@@ -15,6 +63,8 @@ DEPENDENCIES:
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
+  AWSiOSSDK: 53fe33f929710e66f27d9556ae80830d419a103b
+  EasyTableView: 5d6f13647b9f381559bda84995e9e257541cae1f
   FXBlurView: 8d662dd5b4ba15a1a0e97235501326fbdfb2b755
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   OHAttributedLabel: 985e4b57eec0dc6add79179ac47ec888b8a914e7
