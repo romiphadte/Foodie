@@ -1,28 +1,18 @@
 //
 //  RNPAppDelegate.m
-//  Foodie
+//  uploader
 //
-//  Created by Romi Phadte on 2/28/14.
+//  Created by Romi Phadte on 3/25/14.
 //  Copyright (c) 2014 Romi Phadte. All rights reserved.
 //
 
 #import "RNPAppDelegate.h"
-#import "RNPFeedViewController.h"
-#import "RNPCameraOverlayViewController.h"
+
 @implementation RNPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-#ifdef UPLOADER
-    RNPCameraOverlayViewController *rootController= [[RNPCameraOverlayViewController alloc] initWithNibName:@"RNPCameraOverlayViewController" bundle:[NSBundle mainBundle]];
-#else
-    RNPFeedViewController *rootController = [[RNPFeedViewController alloc] initWithNibName:@"RNPFeedViewController" bundle:[NSBundle mainBundle]];
-#endif
-    self.window.rootViewController = rootController;
-    [self.window makeKeyAndVisible];
     return YES;
 }
 							

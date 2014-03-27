@@ -44,6 +44,53 @@
 		E402F8C418C1A7CE0059482C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
 		E402F8CC18C1A7CE0059482C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E402F8CA18C1A7CE0059482C /* InfoPlist.strings */; };
 		E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8CD18C1A7CE0059482C /* FoodieTests.m */; };
+		E4156F7218E22730006F6033 /* RNPBreakCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFD918C42E95001454CC /* RNPBreakCell.m */; };
+		E4156F7318E22730006F6033 /* RNPFeedHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFE218C43351001454CC /* RNPFeedHeader.m */; };
+		E4156F7418E22730006F6033 /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
+		E4156F7518E22730006F6033 /* RNPFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B8BB8618CFF5D200557411 /* RNPFilterViewController.m */; };
+		E4156F7618E22730006F6033 /* RNPFeedFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFEE18C440B1001454CC /* RNPFeedFooter.m */; };
+		E4156F7718E22730006F6033 /* RNPFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFD618C42BFB001454CC /* RNPFeedCell.m */; };
+		E4156F7818E22730006F6033 /* RNPFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C883B018C3FEE300BAF939 /* RNPFeedViewController.m */; };
+		E4156F7918E22730006F6033 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8AB18C1A7CE0059482C /* main.m */; };
+		E4156F7C18E22730006F6033 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 076CF00818C6C579001454CC /* CoreLocation.framework */; };
+		E4156F7D18E22730006F6033 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 076CEFF218C44873001454CC /* QuartzCore.framework */; };
+		E4156F7E18E22730006F6033 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A118C1A7CE0059482C /* CoreGraphics.framework */; };
+		E4156F7F18E22730006F6033 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
+		E4156F8018E22730006F6033 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F89F18C1A7CE0059482C /* Foundation.framework */; };
+		E4156F8118E22730006F6033 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6E061241C641BD8196A1DF /* libPods.a */; };
+		E4156F8318E22730006F6033 /* RNPFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B118C3FEE300BAF939 /* RNPFeedViewController.xib */; };
+		E4156F8418E22730006F6033 /* RNPFeedHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFDD18C431F2001454CC /* RNPFeedHeader.xib */; };
+		E4156F8518E22730006F6033 /* Friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B718C4003300BAF939 /* Friends.png */; };
+		E4156F8618E22730006F6033 /* World.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883BB18C401CC00BAF939 /* World.png */; };
+		E4156F8718E22730006F6033 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFFA18C450E7001454CC /* heart.png */; };
+		E4156F8818E22730006F6033 /* RNPFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFD118C42761001454CC /* RNPFeedCell.xib */; };
+		E4156F8918E22730006F6033 /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 070250EA18CE88CF00A4A133 /* Camera.png */; };
+		E4156F8A18E22730006F6033 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E402F8BA18C1A7CE0059482C /* Images.xcassets */; };
+		E4156F8B18E22730006F6033 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00018C45908001454CC /* location.png */; };
+		E4156F8C18E22730006F6033 /* RNPFeedFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFEF18C440B1001454CC /* RNPFeedFooter.xib */; };
+		E4156F8D18E22730006F6033 /* profile-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00318C57238001454CC /* profile-placeholder.png */; };
+		E4156F8E18E22730006F6033 /* camera_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7C18CFD78000557411 /* camera_overlay.png */; };
+		E4156F8F18E22730006F6033 /* xmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7E18CFE36800557411 /* xmark.png */; };
+		E4156F9018E22730006F6033 /* RNPFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB8718CFF5D200557411 /* RNPFilterViewController.xib */; };
+		E4156F9118E22730006F6033 /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
+		E4156F9218E22730006F6033 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E402F8A818C1A7CE0059482C /* InfoPlist.strings */; };
+		E4156F9318E22730006F6033 /* RNPBreakCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFD318C42BB4001454CC /* RNPBreakCell.xib */; };
+		E4156F9418E22730006F6033 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFF618C44E61001454CC /* comment.png */; };
+		E4156F9518E22730006F6033 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00518C5748E001454CC /* placeholder.png */; };
+		E4156F9618E22730006F6033 /* Nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883B918C4017800BAF939 /* Nearby.png */; };
+		E4156F9E18E2527E006F6033 /* RNPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */; };
+		E4156FA218E25CF2006F6033 /* RNPImageInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4156FA018E25CF2006F6033 /* RNPImageInfoViewController.m */; };
+		E4156FA318E25CF2006F6033 /* RNPImageInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4156FA018E25CF2006F6033 /* RNPImageInfoViewController.m */; };
+		E4156FA418E25CF2006F6033 /* RNPImageInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4156FA118E25CF2006F6033 /* RNPImageInfoViewController.xib */; };
+		E4156FA518E25CF2006F6033 /* RNPImageInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4156FA118E25CF2006F6033 /* RNPImageInfoViewController.xib */; };
+		E42BBE9118CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
+		E42BBE9218CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
+		E42BBE9318CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
+		E42BBE9418CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
+		E4B8BB7D18CFD78000557411 /* camera_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7C18CFD78000557411 /* camera_overlay.png */; };
+		E4B8BB7F18CFE36800557411 /* xmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7E18CFE36800557411 /* xmark.png */; };
+		E4B8BB8818CFF5D200557411 /* RNPFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B8BB8618CFF5D200557411 /* RNPFilterViewController.m */; };
+		E4B8BB8918CFF5D200557411 /* RNPFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB8718CFF5D200557411 /* RNPFilterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +152,42 @@
 		E402F8C918C1A7CE0059482C /* FoodieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodieTests-Info.plist"; sourceTree = "<group>"; };
 		E402F8CB18C1A7CE0059482C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E402F8CD18C1A7CE0059482C /* FoodieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodieTests.m; sourceTree = "<group>"; };
+		E4156F1018E223BC006F6033 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E4156F1418E223BC006F6033 /* foodiestuff-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foodiestuff-Info.plist"; sourceTree = "<group>"; };
+		E4156F1618E223BC006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4156F1818E223BC006F6033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E4156F1A18E223BC006F6033 /* foodiestuff-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "foodiestuff-Prefix.pch"; sourceTree = "<group>"; };
+		E4156F1B18E223BC006F6033 /* RNPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPAppDelegate.h; sourceTree = "<group>"; };
+		E4156F1C18E223BC006F6033 /* RNPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPAppDelegate.m; sourceTree = "<group>"; };
+		E4156F1F18E223BC006F6033 /* foodiestuff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = foodiestuff.xcdatamodel; sourceTree = "<group>"; };
+		E4156F2118E223BC006F6033 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E4156F3018E223BC006F6033 /* foodiestuffTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foodiestuffTests-Info.plist"; sourceTree = "<group>"; };
+		E4156F3218E223BC006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4156F3418E223BC006F6033 /* foodiestuffTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foodiestuffTests.m; sourceTree = "<group>"; };
+		E4156F4718E225DB006F6033 /* Uploader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Uploader-Info.plist"; sourceTree = "<group>"; };
+		E4156F4918E225DB006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4156F4B18E225DB006F6033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E4156F4D18E225DB006F6033 /* Uploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uploader-Prefix.pch"; sourceTree = "<group>"; };
+		E4156F4E18E225DB006F6033 /* RNPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPAppDelegate.h; sourceTree = "<group>"; };
+		E4156F4F18E225DB006F6033 /* RNPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPAppDelegate.m; sourceTree = "<group>"; };
+		E4156F5218E225DB006F6033 /* Uploader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Uploader.xcdatamodel; sourceTree = "<group>"; };
+		E4156F5418E225DB006F6033 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E4156F6318E225DB006F6033 /* UploaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UploaderTests-Info.plist"; sourceTree = "<group>"; };
+		E4156F6518E225DB006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4156F6718E225DB006F6033 /* UploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploaderTests.m; sourceTree = "<group>"; };
+		E4156F9B18E22730006F6033 /* Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4156F9C18E22730006F6033 /* Foodie copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Foodie copy-Info.plist"; path = "/Users/Romi/Dropbox/Projects/Foodie/Foodie/Foodie copy-Info.plist"; sourceTree = "<absolute>"; };
+		E4156F9F18E25CF2006F6033 /* RNPImageInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPImageInfoViewController.h; sourceTree = "<group>"; };
+		E4156FA018E25CF2006F6033 /* RNPImageInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPImageInfoViewController.m; sourceTree = "<group>"; };
+		E4156FA118E25CF2006F6033 /* RNPImageInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPImageInfoViewController.xib; sourceTree = "<group>"; };
+		E42BBE8E18CEC3B80068761A /* RNPCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPCameraOverlayViewController.h; sourceTree = "<group>"; };
+		E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPCameraOverlayViewController.m; sourceTree = "<group>"; };
+		E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPCameraOverlayViewController.xib; sourceTree = "<group>"; };
+		E4B8BB7C18CFD78000557411 /* camera_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_overlay.png; sourceTree = "<group>"; };
+		E4B8BB7E18CFE36800557411 /* xmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmark.png; sourceTree = "<group>"; };
+		E4B8BB8518CFF5D200557411 /* RNPFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPFilterViewController.h; sourceTree = "<group>"; };
+		E4B8BB8618CFF5D200557411 /* RNPFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPFilterViewController.m; sourceTree = "<group>"; };
+		E4B8BB8718CFF5D200557411 /* RNPFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPFilterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +215,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4156F7B18E22730006F6033 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4156F7C18E22730006F6033 /* CoreLocation.framework in Frameworks */,
+				E4156F7D18E22730006F6033 /* QuartzCore.framework in Frameworks */,
+				E4156F7E18E22730006F6033 /* CoreGraphics.framework in Frameworks */,
+				E4156F7F18E22730006F6033 /* UIKit.framework in Frameworks */,
+				E4156F8018E22730006F6033 /* Foundation.framework in Frameworks */,
+				E4156F8118E22730006F6033 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -156,9 +252,14 @@
 			children = (
 				E402F8A518C1A7CE0059482C /* Foodie */,
 				E402F8C718C1A7CE0059482C /* FoodieTests */,
+				E4156F1218E223BC006F6033 /* foodiestuff */,
+				E4156F2E18E223BC006F6033 /* foodiestuffTests */,
+				E4156F4518E225DB006F6033 /* Uploader */,
+				E4156F6118E225DB006F6033 /* UploaderTests */,
 				E402F89E18C1A7CE0059482C /* Frameworks */,
 				E402F89D18C1A7CE0059482C /* Products */,
 				42320C0FE21C4309A3D82E23 /* Pods.xcconfig */,
+				E4156F9C18E22730006F6033 /* Foodie copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +268,7 @@
 			children = (
 				E402F89C18C1A7CE0059482C /* Foodie.app */,
 				E402F8C018C1A7CE0059482C /* FoodieTests.xctest */,
+				E4156F9B18E22730006F6033 /* Uploader.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +284,7 @@
 				E402F8A318C1A7CE0059482C /* UIKit.framework */,
 				E402F8C118C1A7CE0059482C /* XCTest.framework */,
 				4C6E061241C641BD8196A1DF /* libPods.a */,
+				E4156F1018E223BC006F6033 /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,6 +292,7 @@
 		E402F8A518C1A7CE0059482C /* Foodie */ = {
 			isa = PBXGroup;
 			children = (
+				E4156F9D18E22E05006F6033 /* Uploader */,
 				E402F8AE18C1A7CE0059482C /* RNPAppDelegate.h */,
 				E402F8AF18C1A7CE0059482C /* RNPAppDelegate.m */,
 				07C883AF18C3FEE300BAF939 /* RNPFeedViewController.h */,
@@ -218,6 +322,7 @@
 		E402F8A618C1A7CE0059482C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4B8BB7B18CFD77200557411 /* Camera */,
 				07C883B618C3FFB900BAF939 /* Feed */,
 				E402F8A718C1A7CE0059482C /* Foodie-Info.plist */,
 				E402F8A818C1A7CE0059482C /* InfoPlist.strings */,
@@ -243,6 +348,104 @@
 				E402F8CA18C1A7CE0059482C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4156F1218E223BC006F6033 /* foodiestuff */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F1B18E223BC006F6033 /* RNPAppDelegate.h */,
+				E4156F1C18E223BC006F6033 /* RNPAppDelegate.m */,
+				E4156F2118E223BC006F6033 /* Images.xcassets */,
+				E4156F1E18E223BC006F6033 /* foodiestuff.xcdatamodeld */,
+				E4156F1318E223BC006F6033 /* Supporting Files */,
+			);
+			path = foodiestuff;
+			sourceTree = "<group>";
+		};
+		E4156F1318E223BC006F6033 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F1418E223BC006F6033 /* foodiestuff-Info.plist */,
+				E4156F1518E223BC006F6033 /* InfoPlist.strings */,
+				E4156F1818E223BC006F6033 /* main.m */,
+				E4156F1A18E223BC006F6033 /* foodiestuff-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4156F2E18E223BC006F6033 /* foodiestuffTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F3418E223BC006F6033 /* foodiestuffTests.m */,
+				E4156F2F18E223BC006F6033 /* Supporting Files */,
+			);
+			path = foodiestuffTests;
+			sourceTree = "<group>";
+		};
+		E4156F2F18E223BC006F6033 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F3018E223BC006F6033 /* foodiestuffTests-Info.plist */,
+				E4156F3118E223BC006F6033 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4156F4518E225DB006F6033 /* Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F4E18E225DB006F6033 /* RNPAppDelegate.h */,
+				E4156F4F18E225DB006F6033 /* RNPAppDelegate.m */,
+				E4156F5418E225DB006F6033 /* Images.xcassets */,
+				E4156F5118E225DB006F6033 /* Uploader.xcdatamodeld */,
+				E4156F4618E225DB006F6033 /* Supporting Files */,
+			);
+			path = Uploader;
+			sourceTree = "<group>";
+		};
+		E4156F4618E225DB006F6033 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F4718E225DB006F6033 /* Uploader-Info.plist */,
+				E4156F4818E225DB006F6033 /* InfoPlist.strings */,
+				E4156F4B18E225DB006F6033 /* main.m */,
+				E4156F4D18E225DB006F6033 /* Uploader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4156F6118E225DB006F6033 /* UploaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F6718E225DB006F6033 /* UploaderTests.m */,
+				E4156F6218E225DB006F6033 /* Supporting Files */,
+			);
+			path = UploaderTests;
+			sourceTree = "<group>";
+		};
+		E4156F6218E225DB006F6033 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4156F6318E225DB006F6033 /* UploaderTests-Info.plist */,
+				E4156F6418E225DB006F6033 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4156F9D18E22E05006F6033 /* Uploader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Uploader;
+			sourceTree = "<group>";
+		};
+		E4B8BB7B18CFD77200557411 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				E4B8BB7E18CFE36800557411 /* xmark.png */,
+				E4B8BB7C18CFD78000557411 /* camera_overlay.png */,
+			);
+			name = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +488,25 @@
 			productReference = E402F8C018C1A7CE0059482C /* FoodieTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E4156F6F18E22730006F6033 /* Uploader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4156F9818E22730006F6033 /* Build configuration list for PBXNativeTarget "Uploader" */;
+			buildPhases = (
+				E4156F7018E22730006F6033 /* Check Pods Manifest.lock */,
+				E4156F7118E22730006F6033 /* Sources */,
+				E4156F7B18E22730006F6033 /* Frameworks */,
+				E4156F8218E22730006F6033 /* Resources */,
+				E4156F9718E22730006F6033 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Uploader;
+			productName = Foodie;
+			productReference = E4156F9B18E22730006F6033 /* Uploader.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -297,6 +519,9 @@
 				TargetAttributes = {
 					E402F8BF18C1A7CE0059482C = {
 						TestTargetID = E402F89B18C1A7CE0059482C;
+					};
+					E4156F6F18E22730006F6033 = {
+						DevelopmentTeam = U5ZX37W26Z;
 					};
 				};
 			};
@@ -315,6 +540,7 @@
 			targets = (
 				E402F89B18C1A7CE0059482C /* Foodie */,
 				E402F8BF18C1A7CE0059482C /* FoodieTests */,
+				E4156F6F18E22730006F6033 /* Uploader */,
 			);
 		};
 /* End PBXProject section */
@@ -336,6 +562,11 @@
 				076CF00118C45908001454CC /* location.png in Resources */,
 				076CEFF118C440B1001454CC /* RNPFeedFooter.xib in Resources */,
 				076CF00418C57238001454CC /* profile-placeholder.png in Resources */,
+				E4156FA418E25CF2006F6033 /* RNPImageInfoViewController.xib in Resources */,
+				E4B8BB7D18CFD78000557411 /* camera_overlay.png in Resources */,
+				E4B8BB7F18CFE36800557411 /* xmark.png in Resources */,
+				E4B8BB8918CFF5D200557411 /* RNPFilterViewController.xib in Resources */,
+				E42BBE9318CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */,
 				E402F8AA18C1A7CE0059482C /* InfoPlist.strings in Resources */,
 				076CEFD418C42BB4001454CC /* RNPBreakCell.xib in Resources */,
 				076CEFF718C44E61001454CC /* comment.png in Resources */,
@@ -349,6 +580,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				E402F8CC18C1A7CE0059482C /* InfoPlist.strings in Resources */,
+				E42BBE9418CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4156F8218E22730006F6033 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4156F8318E22730006F6033 /* RNPFeedViewController.xib in Resources */,
+				E4156F8418E22730006F6033 /* RNPFeedHeader.xib in Resources */,
+				E4156F8518E22730006F6033 /* Friends.png in Resources */,
+				E4156F8618E22730006F6033 /* World.png in Resources */,
+				E4156F8718E22730006F6033 /* heart.png in Resources */,
+				E4156F8818E22730006F6033 /* RNPFeedCell.xib in Resources */,
+				E4156F8918E22730006F6033 /* Camera.png in Resources */,
+				E4156F8A18E22730006F6033 /* Images.xcassets in Resources */,
+				E4156F8B18E22730006F6033 /* location.png in Resources */,
+				E4156F8C18E22730006F6033 /* RNPFeedFooter.xib in Resources */,
+				E4156F8D18E22730006F6033 /* profile-placeholder.png in Resources */,
+				E4156FA518E25CF2006F6033 /* RNPImageInfoViewController.xib in Resources */,
+				E4156F8E18E22730006F6033 /* camera_overlay.png in Resources */,
+				E4156F8F18E22730006F6033 /* xmark.png in Resources */,
+				E4156F9018E22730006F6033 /* RNPFilterViewController.xib in Resources */,
+				E4156F9118E22730006F6033 /* RNPCameraOverlayViewController.xib in Resources */,
+				E4156F9218E22730006F6033 /* InfoPlist.strings in Resources */,
+				E4156F9318E22730006F6033 /* RNPBreakCell.xib in Resources */,
+				E4156F9418E22730006F6033 /* comment.png in Resources */,
+				E4156F9518E22730006F6033 /* placeholder.png in Resources */,
+				E4156F9618E22730006F6033 /* Nearby.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +628,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4156F7018E22730006F6033 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4156F9718E22730006F6033 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F7FCF15E2CC44C3B9F5BE2B2 /* Copy Pods Resources */ = {
@@ -394,6 +684,8 @@
 			files = (
 				076CEFDA18C42E95001454CC /* RNPBreakCell.m in Sources */,
 				076CEFE318C43351001454CC /* RNPFeedHeader.m in Sources */,
+				E42BBE9118CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */,
+				E4B8BB8818CFF5D200557411 /* RNPFilterViewController.m in Sources */,
 				076CEFF018C440B1001454CC /* RNPFeedFooter.m in Sources */,
 				E4000E7B18CFB651002E1AE4 /* RNPLoginViewController.m in Sources */,
 				076CEFD718C42BFB001454CC /* RNPFeedCell.m in Sources */,
@@ -407,7 +699,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42BBE9218CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */,
 				E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4156F7118E22730006F6033 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4156F9E18E2527E006F6033 /* RNPAppDelegate.m in Sources */,
+				E4156F7218E22730006F6033 /* RNPBreakCell.m in Sources */,
+				E4156F7318E22730006F6033 /* RNPFeedHeader.m in Sources */,
+				E4156F7418E22730006F6033 /* RNPCameraOverlayViewController.m in Sources */,
+				E4156F7518E22730006F6033 /* RNPFilterViewController.m in Sources */,
+				E4156FA318E25CF2006F6033 /* RNPImageInfoViewController.m in Sources */,
+				E4156F7618E22730006F6033 /* RNPFeedFooter.m in Sources */,
+				E4156F7718E22730006F6033 /* RNPFeedCell.m in Sources */,
+				E4156F7818E22730006F6033 /* RNPFeedViewController.m in Sources */,
+				E4156F7918E22730006F6033 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +744,38 @@
 			isa = PBXVariantGroup;
 			children = (
 				E402F8CB18C1A7CE0059482C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E4156F1518E223BC006F6033 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4156F1618E223BC006F6033 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E4156F3118E223BC006F6033 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4156F3218E223BC006F6033 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E4156F4818E225DB006F6033 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4156F4918E225DB006F6033 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E4156F6418E225DB006F6033 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4156F6518E225DB006F6033 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -593,6 +935,47 @@
 			};
 			name = Release;
 		};
+		E4156F9918E22730006F6033 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42320C0FE21C4309A3D82E23 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Foodie/Foodie-Prefix.pch";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"UPLOADER=1",
+				);
+				INFOPLIST_FILE = "Foodie copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Uploader;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4156F9A18E22730006F6033 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42320C0FE21C4309A3D82E23 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Foodie/Foodie-Prefix.pch";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"$(inherited)",
+					"UPLOADER=1",
+				);
+				INFOPLIST_FILE = "Foodie copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Uploader;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -623,7 +1006,39 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		E4156F9818E22730006F6033 /* Build configuration list for PBXNativeTarget "Uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4156F9918E22730006F6033 /* Debug */,
+				E4156F9A18E22730006F6033 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E4156F1E18E223BC006F6033 /* foodiestuff.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E4156F1F18E223BC006F6033 /* foodiestuff.xcdatamodel */,
+			);
+			currentVersion = E4156F1F18E223BC006F6033 /* foodiestuff.xcdatamodel */;
+			path = foodiestuff.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		E4156F5118E225DB006F6033 /* Uploader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E4156F5218E225DB006F6033 /* Uploader.xcdatamodel */,
+			);
+			currentVersion = E4156F5218E225DB006F6033 /* Uploader.xcdatamodel */;
+			path = Uploader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E402F89418C1A7CE0059482C /* Project object */;
 }
