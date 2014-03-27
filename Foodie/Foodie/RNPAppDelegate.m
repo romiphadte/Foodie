@@ -9,6 +9,10 @@
 #import "RNPAppDelegate.h"
 #import "RNPFeedViewController.h"
 #import "RNPCameraOverlayViewController.h"
+#import "RNPUserSession.h"
+#import "RNPLoginViewController.h"
+#import <FacebookSDK/Facebook.h>
+
 @implementation RNPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,13 +23,33 @@
 #ifdef UPLOADER
     RNPCameraOverlayViewController *rootController= [[RNPCameraOverlayViewController alloc] initWithNibName:@"RNPCameraOverlayViewController" bundle:[NSBundle mainBundle]];
 #else
-    RNPFeedViewController *rootController = [[RNPFeedViewController alloc] initWithNibName:@"RNPFeedViewController" bundle:[NSBundle mainBundle]];
+    UIViewController *rootController;
+    if([[RNPUserSession sharedInstance] isLoggedIn]){
+        rootController = [[RNPFeedViewController alloc] initWithNibName:@"RNPFeedViewController" bundle:[NSBundle mainBundle]];
+    }
+    else{
+        rootController = [[RNPLoginViewController alloc] initWithNibName:@"RNPLoginViewController" bundle:[NSBundle mainBundle]];
+    }
+    
 #endif
     self.window.rootViewController = rootController;
     [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

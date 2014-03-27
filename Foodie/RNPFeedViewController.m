@@ -17,6 +17,8 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <CoreLocation/CoreLocation.h>
 #import "RNPCameraOverlayViewController.h"
+#import "RNPLoginViewController.h"
+#import "RNPUserSession.h"
 
 
 @interface RNPFeedViewController ()
@@ -648,5 +650,18 @@
     if (_locationUpdateIsForNearbyRefresh)
         [self updateNearbyFeed];
 }
+
+- (IBAction)logout:(id)sender {
+    RNPLoginViewController* root=[[RNPLoginViewController alloc]init];
+    [[UIApplication sharedApplication] delegate].window.rootViewController=root;
+    [[[UIApplication sharedApplication] delegate].window makeKeyAndVisible];
+    [self dismissViewControllerAnimated:NO completion:^{
+        NSLog(@"logout");
+    }];
+    [[RNPUserSession sharedInstance] logOut];
+    
+}
+
+
 
 @end

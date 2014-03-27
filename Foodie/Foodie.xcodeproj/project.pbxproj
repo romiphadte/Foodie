@@ -31,7 +31,6 @@
 		07C883BC18C401CC00BAF939 /* World.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C883BB18C401CC00BAF939 /* World.png */; };
 		E4000E7B18CFB651002E1AE4 /* RNPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4000E7918CFB651002E1AE4 /* RNPLoginViewController.m */; };
 		E4000E7C18CFB651002E1AE4 /* RNPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4000E7A18CFB651002E1AE4 /* RNPLoginViewController.xib */; };
-		E4000E7E18CFBD33002E1AE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4000E7D18CFBD33002E1AE4 /* FacebookSDK.framework */; };
 		E402F8A018C1A7CE0059482C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F89F18C1A7CE0059482C /* Foundation.framework */; };
 		E402F8A218C1A7CE0059482C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A118C1A7CE0059482C /* CoreGraphics.framework */; };
 		E402F8A418C1A7CE0059482C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
@@ -44,6 +43,8 @@
 		E402F8C418C1A7CE0059482C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
 		E402F8CC18C1A7CE0059482C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E402F8CA18C1A7CE0059482C /* InfoPlist.strings */; };
 		E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8CD18C1A7CE0059482C /* FoodieTests.m */; };
+		E40C815118E4399800B83922 /* tomato.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E40C815018E4399800B83922 /* tomato.jpeg */; };
+		E40C815218E4399800B83922 /* tomato.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E40C815018E4399800B83922 /* tomato.jpeg */; };
 		E4156F7218E22730006F6033 /* RNPBreakCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFD918C42E95001454CC /* RNPBreakCell.m */; };
 		E4156F7318E22730006F6033 /* RNPFeedHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CEFE218C43351001454CC /* RNPFeedHeader.m */; };
 		E4156F7418E22730006F6033 /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
@@ -69,7 +70,6 @@
 		E4156F8B18E22730006F6033 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00018C45908001454CC /* location.png */; };
 		E4156F8C18E22730006F6033 /* RNPFeedFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CEFEF18C440B1001454CC /* RNPFeedFooter.xib */; };
 		E4156F8D18E22730006F6033 /* profile-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 076CF00318C57238001454CC /* profile-placeholder.png */; };
-		E4156F8E18E22730006F6033 /* camera_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7C18CFD78000557411 /* camera_overlay.png */; };
 		E4156F8F18E22730006F6033 /* xmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7E18CFE36800557411 /* xmark.png */; };
 		E4156F9018E22730006F6033 /* RNPFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB8718CFF5D200557411 /* RNPFilterViewController.xib */; };
 		E4156F9118E22730006F6033 /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
@@ -87,7 +87,8 @@
 		E42BBE9218CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */; };
 		E42BBE9318CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
 		E42BBE9418CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */; };
-		E4B8BB7D18CFD78000557411 /* camera_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7C18CFD78000557411 /* camera_overlay.png */; };
+		E433B2F718E3DBA600ABB600 /* RNPUserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E433B2F618E3DBA600ABB600 /* RNPUserSession.m */; };
+		E433B2F818E3DBA600ABB600 /* RNPUserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E433B2F618E3DBA600ABB600 /* RNPUserSession.m */; };
 		E4B8BB7F18CFE36800557411 /* xmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB7E18CFE36800557411 /* xmark.png */; };
 		E4B8BB8818CFF5D200557411 /* RNPFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B8BB8618CFF5D200557411 /* RNPFilterViewController.m */; };
 		E4B8BB8918CFF5D200557411 /* RNPFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B8BB8718CFF5D200557411 /* RNPFilterViewController.xib */; };
@@ -152,6 +153,7 @@
 		E402F8C918C1A7CE0059482C /* FoodieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodieTests-Info.plist"; sourceTree = "<group>"; };
 		E402F8CB18C1A7CE0059482C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E402F8CD18C1A7CE0059482C /* FoodieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodieTests.m; sourceTree = "<group>"; };
+		E40C815018E4399800B83922 /* tomato.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tomato.jpeg; sourceTree = "<group>"; };
 		E4156F1018E223BC006F6033 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E4156F1418E223BC006F6033 /* foodiestuff-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foodiestuff-Info.plist"; sourceTree = "<group>"; };
 		E4156F1618E223BC006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -183,7 +185,8 @@
 		E42BBE8E18CEC3B80068761A /* RNPCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPCameraOverlayViewController.h; sourceTree = "<group>"; };
 		E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPCameraOverlayViewController.m; sourceTree = "<group>"; };
 		E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNPCameraOverlayViewController.xib; sourceTree = "<group>"; };
-		E4B8BB7C18CFD78000557411 /* camera_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_overlay.png; sourceTree = "<group>"; };
+		E433B2F518E3DBA600ABB600 /* RNPUserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPUserSession.h; sourceTree = "<group>"; };
+		E433B2F618E3DBA600ABB600 /* RNPUserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPUserSession.m; sourceTree = "<group>"; };
 		E4B8BB7E18CFE36800557411 /* xmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmark.png; sourceTree = "<group>"; };
 		E4B8BB8518CFF5D200557411 /* RNPFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPFilterViewController.h; sourceTree = "<group>"; };
 		E4B8BB8618CFF5D200557411 /* RNPFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPFilterViewController.m; sourceTree = "<group>"; };
@@ -195,7 +198,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4000E7E18CFBD33002E1AE4 /* FacebookSDK.framework in Frameworks */,
 				076CF00918C6C579001454CC /* CoreLocation.framework in Frameworks */,
 				076CEFF318C44873001454CC /* QuartzCore.framework in Frameworks */,
 				E402F8A218C1A7CE0059482C /* CoreGraphics.framework in Frameworks */,
@@ -301,6 +303,17 @@
 				E4000E7818CFB651002E1AE4 /* RNPLoginViewController.h */,
 				E4000E7918CFB651002E1AE4 /* RNPLoginViewController.m */,
 				E4000E7A18CFB651002E1AE4 /* RNPLoginViewController.xib */,
+				E433B2F518E3DBA600ABB600 /* RNPUserSession.h */,
+				E433B2F618E3DBA600ABB600 /* RNPUserSession.m */,
+				E42BBE8E18CEC3B80068761A /* RNPCameraOverlayViewController.h */,
+				E4B8BB8518CFF5D200557411 /* RNPFilterViewController.h */,
+				E4B8BB8618CFF5D200557411 /* RNPFilterViewController.m */,
+				E4B8BB8718CFF5D200557411 /* RNPFilterViewController.xib */,
+				E4156F9F18E25CF2006F6033 /* RNPImageInfoViewController.h */,
+				E4156FA018E25CF2006F6033 /* RNPImageInfoViewController.m */,
+				E4156FA118E25CF2006F6033 /* RNPImageInfoViewController.xib */,
+				E42BBE8F18CEC3B80068761A /* RNPCameraOverlayViewController.m */,
+				E42BBE9018CEC3B80068761A /* RNPCameraOverlayViewController.xib */,
 				076CEFE118C43351001454CC /* RNPFeedHeader.h */,
 				076CEFE218C43351001454CC /* RNPFeedHeader.m */,
 				076CEFDD18C431F2001454CC /* RNPFeedHeader.xib */,
@@ -322,6 +335,7 @@
 		E402F8A618C1A7CE0059482C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E433B2F918E3DE1F00ABB600 /* Login */,
 				E4B8BB7B18CFD77200557411 /* Camera */,
 				07C883B618C3FFB900BAF939 /* Feed */,
 				E402F8A718C1A7CE0059482C /* Foodie-Info.plist */,
@@ -439,11 +453,18 @@
 			name = Uploader;
 			sourceTree = "<group>";
 		};
+		E433B2F918E3DE1F00ABB600 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E40C815018E4399800B83922 /* tomato.jpeg */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		E4B8BB7B18CFD77200557411 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
 				E4B8BB7E18CFE36800557411 /* xmark.png */,
-				E4B8BB7C18CFD78000557411 /* camera_overlay.png */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -520,9 +541,6 @@
 					E402F8BF18C1A7CE0059482C = {
 						TestTargetID = E402F89B18C1A7CE0059482C;
 					};
-					E4156F6F18E22730006F6033 = {
-						DevelopmentTeam = U5ZX37W26Z;
-					};
 				};
 			};
 			buildConfigurationList = E402F89718C1A7CE0059482C /* Build configuration list for PBXProject "Foodie" */;
@@ -551,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07C883B318C3FEE300BAF939 /* RNPFeedViewController.xib in Resources */,
+				E40C815118E4399800B83922 /* tomato.jpeg in Resources */,
 				076CEFDE18C431F2001454CC /* RNPFeedHeader.xib in Resources */,
 				07C883B818C4003300BAF939 /* Friends.png in Resources */,
 				07C883BC18C401CC00BAF939 /* World.png in Resources */,
@@ -563,7 +582,6 @@
 				076CEFF118C440B1001454CC /* RNPFeedFooter.xib in Resources */,
 				076CF00418C57238001454CC /* profile-placeholder.png in Resources */,
 				E4156FA418E25CF2006F6033 /* RNPImageInfoViewController.xib in Resources */,
-				E4B8BB7D18CFD78000557411 /* camera_overlay.png in Resources */,
 				E4B8BB7F18CFE36800557411 /* xmark.png in Resources */,
 				E4B8BB8918CFF5D200557411 /* RNPFilterViewController.xib in Resources */,
 				E42BBE9318CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */,
@@ -595,12 +613,12 @@
 				E4156F8718E22730006F6033 /* heart.png in Resources */,
 				E4156F8818E22730006F6033 /* RNPFeedCell.xib in Resources */,
 				E4156F8918E22730006F6033 /* Camera.png in Resources */,
+				E40C815218E4399800B83922 /* tomato.jpeg in Resources */,
 				E4156F8A18E22730006F6033 /* Images.xcassets in Resources */,
 				E4156F8B18E22730006F6033 /* location.png in Resources */,
 				E4156F8C18E22730006F6033 /* RNPFeedFooter.xib in Resources */,
 				E4156F8D18E22730006F6033 /* profile-placeholder.png in Resources */,
 				E4156FA518E25CF2006F6033 /* RNPImageInfoViewController.xib in Resources */,
-				E4156F8E18E22730006F6033 /* camera_overlay.png in Resources */,
 				E4156F8F18E22730006F6033 /* xmark.png in Resources */,
 				E4156F9018E22730006F6033 /* RNPFilterViewController.xib in Resources */,
 				E4156F9118E22730006F6033 /* RNPCameraOverlayViewController.xib in Resources */,
@@ -687,10 +705,12 @@
 				E42BBE9118CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */,
 				E4B8BB8818CFF5D200557411 /* RNPFilterViewController.m in Sources */,
 				076CEFF018C440B1001454CC /* RNPFeedFooter.m in Sources */,
+				E4156FA218E25CF2006F6033 /* RNPImageInfoViewController.m in Sources */,
 				E4000E7B18CFB651002E1AE4 /* RNPLoginViewController.m in Sources */,
 				076CEFD718C42BFB001454CC /* RNPFeedCell.m in Sources */,
 				07C883B218C3FEE300BAF939 /* RNPFeedViewController.m in Sources */,
 				E402F8AC18C1A7CE0059482C /* main.m in Sources */,
+				E433B2F718E3DBA600ABB600 /* RNPUserSession.m in Sources */,
 				E402F8B018C1A7CE0059482C /* RNPAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,6 +736,7 @@
 				E4156FA318E25CF2006F6033 /* RNPImageInfoViewController.m in Sources */,
 				E4156F7618E22730006F6033 /* RNPFeedFooter.m in Sources */,
 				E4156F7718E22730006F6033 /* RNPFeedCell.m in Sources */,
+				E433B2F818E3DBA600ABB600 /* RNPUserSession.m in Sources */,
 				E4156F7818E22730006F6033 /* RNPFeedViewController.m in Sources */,
 				E4156F7918E22730006F6033 /* main.m in Sources */,
 			);
@@ -863,10 +884,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/Romi/Documents/FacebookSDK,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Foodie/Foodie-Prefix.pch";
 				INFOPLIST_FILE = "Foodie/Foodie-Info.plist";
@@ -881,10 +899,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/Romi/Documents/FacebookSDK,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Foodie/Foodie-Prefix.pch";
 				INFOPLIST_FILE = "Foodie/Foodie-Info.plist";
