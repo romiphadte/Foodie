@@ -13,10 +13,12 @@
 @interface RNPFilterViewController ()
 
 @property UIImage *savedImage;
+@property UIImage *filteredImage;
 @property (weak, nonatomic) IBOutlet FXBlurView *topBlurBar;
 @property (weak, nonatomic) IBOutlet UIView *bottomBlurBar;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end
 
@@ -73,5 +75,18 @@
     }];
 
 }
+
+- (IBAction)sepia:(id)sender {
+    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
+    GPUImageSepiaFilter *stillImageFilter = [[GPUImageSepiaFilter alloc] init];
+    
+    [stillImageSource addTarget:stillImageFilter];
+    [stillImageFilter useNextFrameForImageCapture]
+    [stillImageSource processImage];
+    
+    UIImage *currentFilteredVideoFrame = [stillImageFilter imageFromCurrentFramebuffer];
+}
+
+
 
 @end

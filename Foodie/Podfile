@@ -7,3 +7,5 @@ pod 'SVPullToRefresh'
 pod 'EasyTableView'
 pod 'AWSiOSSDK'
 pod 'Facebook-iOS-SDK'
+pod 'GPUImage'
+

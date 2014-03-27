@@ -41,8 +41,6 @@
 		E402F8C218C1A7CE0059482C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8C118C1A7CE0059482C /* XCTest.framework */; };
 		E402F8C318C1A7CE0059482C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F89F18C1A7CE0059482C /* Foundation.framework */; };
 		E402F8C418C1A7CE0059482C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E402F8A318C1A7CE0059482C /* UIKit.framework */; };
-		E402F8CC18C1A7CE0059482C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E402F8CA18C1A7CE0059482C /* InfoPlist.strings */; };
-		E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E402F8CD18C1A7CE0059482C /* FoodieTests.m */; };
 		E40C815118E4399800B83922 /* tomato.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E40C815018E4399800B83922 /* tomato.jpeg */; };
 		E40C815218E4399800B83922 /* tomato.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E40C815018E4399800B83922 /* tomato.jpeg */; };
 		E40C815418E43E3600B83922 /* RNPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4000E7918CFB651002E1AE4 /* RNPLoginViewController.m */; };
@@ -152,30 +150,8 @@
 		E402F8BA18C1A7CE0059482C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E402F8C018C1A7CE0059482C /* FoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E402F8C118C1A7CE0059482C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E402F8C918C1A7CE0059482C /* FoodieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodieTests-Info.plist"; sourceTree = "<group>"; };
-		E402F8CB18C1A7CE0059482C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E402F8CD18C1A7CE0059482C /* FoodieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodieTests.m; sourceTree = "<group>"; };
 		E40C815018E4399800B83922 /* tomato.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tomato.jpeg; sourceTree = "<group>"; };
 		E4156F1018E223BC006F6033 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		E4156F1418E223BC006F6033 /* foodiestuff-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foodiestuff-Info.plist"; sourceTree = "<group>"; };
-		E4156F1618E223BC006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E4156F1818E223BC006F6033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E4156F1A18E223BC006F6033 /* foodiestuff-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "foodiestuff-Prefix.pch"; sourceTree = "<group>"; };
-		E4156F1B18E223BC006F6033 /* RNPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPAppDelegate.h; sourceTree = "<group>"; };
-		E4156F1C18E223BC006F6033 /* RNPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPAppDelegate.m; sourceTree = "<group>"; };
-		E4156F1F18E223BC006F6033 /* foodiestuff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = foodiestuff.xcdatamodel; sourceTree = "<group>"; };
-		E4156F2118E223BC006F6033 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E4156F3018E223BC006F6033 /* foodiestuffTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foodiestuffTests-Info.plist"; sourceTree = "<group>"; };
-		E4156F3218E223BC006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E4156F3418E223BC006F6033 /* foodiestuffTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foodiestuffTests.m; sourceTree = "<group>"; };
-		E4156F4718E225DB006F6033 /* Uploader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Uploader-Info.plist"; sourceTree = "<group>"; };
-		E4156F4918E225DB006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E4156F4B18E225DB006F6033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E4156F4D18E225DB006F6033 /* Uploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uploader-Prefix.pch"; sourceTree = "<group>"; };
-		E4156F4E18E225DB006F6033 /* RNPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPAppDelegate.h; sourceTree = "<group>"; };
-		E4156F4F18E225DB006F6033 /* RNPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPAppDelegate.m; sourceTree = "<group>"; };
-		E4156F5218E225DB006F6033 /* Uploader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Uploader.xcdatamodel; sourceTree = "<group>"; };
-		E4156F5418E225DB006F6033 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E4156F6318E225DB006F6033 /* UploaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UploaderTests-Info.plist"; sourceTree = "<group>"; };
 		E4156F6518E225DB006F6033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E4156F6718E225DB006F6033 /* UploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploaderTests.m; sourceTree = "<group>"; };
@@ -255,10 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				E402F8A518C1A7CE0059482C /* Foodie */,
-				E402F8C718C1A7CE0059482C /* FoodieTests */,
-				E4156F1218E223BC006F6033 /* foodiestuff */,
-				E4156F2E18E223BC006F6033 /* foodiestuffTests */,
-				E4156F4518E225DB006F6033 /* Uploader */,
 				E4156F6118E225DB006F6033 /* UploaderTests */,
 				E402F89E18C1A7CE0059482C /* Frameworks */,
 				E402F89D18C1A7CE0059482C /* Products */,
@@ -344,88 +316,6 @@
 				E402F8A818C1A7CE0059482C /* InfoPlist.strings */,
 				E402F8AB18C1A7CE0059482C /* main.m */,
 				E402F8AD18C1A7CE0059482C /* Foodie-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E402F8C718C1A7CE0059482C /* FoodieTests */ = {
-			isa = PBXGroup;
-			children = (
-				E402F8CD18C1A7CE0059482C /* FoodieTests.m */,
-				E402F8C818C1A7CE0059482C /* Supporting Files */,
-			);
-			path = FoodieTests;
-			sourceTree = "<group>";
-		};
-		E402F8C818C1A7CE0059482C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E402F8C918C1A7CE0059482C /* FoodieTests-Info.plist */,
-				E402F8CA18C1A7CE0059482C /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E4156F1218E223BC006F6033 /* foodiestuff */ = {
-			isa = PBXGroup;
-			children = (
-				E4156F1B18E223BC006F6033 /* RNPAppDelegate.h */,
-				E4156F1C18E223BC006F6033 /* RNPAppDelegate.m */,
-				E4156F2118E223BC006F6033 /* Images.xcassets */,
-				E4156F1E18E223BC006F6033 /* foodiestuff.xcdatamodeld */,
-				E4156F1318E223BC006F6033 /* Supporting Files */,
-			);
-			path = foodiestuff;
-			sourceTree = "<group>";
-		};
-		E4156F1318E223BC006F6033 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E4156F1418E223BC006F6033 /* foodiestuff-Info.plist */,
-				E4156F1518E223BC006F6033 /* InfoPlist.strings */,
-				E4156F1818E223BC006F6033 /* main.m */,
-				E4156F1A18E223BC006F6033 /* foodiestuff-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E4156F2E18E223BC006F6033 /* foodiestuffTests */ = {
-			isa = PBXGroup;
-			children = (
-				E4156F3418E223BC006F6033 /* foodiestuffTests.m */,
-				E4156F2F18E223BC006F6033 /* Supporting Files */,
-			);
-			path = foodiestuffTests;
-			sourceTree = "<group>";
-		};
-		E4156F2F18E223BC006F6033 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E4156F3018E223BC006F6033 /* foodiestuffTests-Info.plist */,
-				E4156F3118E223BC006F6033 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E4156F4518E225DB006F6033 /* Uploader */ = {
-			isa = PBXGroup;
-			children = (
-				E4156F4E18E225DB006F6033 /* RNPAppDelegate.h */,
-				E4156F4F18E225DB006F6033 /* RNPAppDelegate.m */,
-				E4156F5418E225DB006F6033 /* Images.xcassets */,
-				E4156F5118E225DB006F6033 /* Uploader.xcdatamodeld */,
-				E4156F4618E225DB006F6033 /* Supporting Files */,
-			);
-			path = Uploader;
-			sourceTree = "<group>";
-		};
-		E4156F4618E225DB006F6033 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E4156F4718E225DB006F6033 /* Uploader-Info.plist */,
-				E4156F4818E225DB006F6033 /* InfoPlist.strings */,
-				E4156F4B18E225DB006F6033 /* main.m */,
-				E4156F4D18E225DB006F6033 /* Uploader-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -599,7 +489,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E402F8CC18C1A7CE0059482C /* InfoPlist.strings in Resources */,
 				E42BBE9418CEC3B80068761A /* RNPCameraOverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,7 +612,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42BBE9218CEC3B80068761A /* RNPCameraOverlayViewController.m in Sources */,
-				E402F8CE18C1A7CE0059482C /* FoodieTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,38 +649,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				E402F8A918C1A7CE0059482C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E402F8CA18C1A7CE0059482C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E402F8CB18C1A7CE0059482C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E4156F1518E223BC006F6033 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4156F1618E223BC006F6033 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E4156F3118E223BC006F6033 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4156F3218E223BC006F6033 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E4156F4818E225DB006F6033 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4156F4918E225DB006F6033 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1035,29 +891,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E4156F1E18E223BC006F6033 /* foodiestuff.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E4156F1F18E223BC006F6033 /* foodiestuff.xcdatamodel */,
-			);
-			currentVersion = E4156F1F18E223BC006F6033 /* foodiestuff.xcdatamodel */;
-			path = foodiestuff.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		E4156F5118E225DB006F6033 /* Uploader.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E4156F5218E225DB006F6033 /* Uploader.xcdatamodel */,
-			);
-			currentVersion = E4156F5218E225DB006F6033 /* Uploader.xcdatamodel */;
-			path = Uploader.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E402F89418C1A7CE0059482C /* Project object */;
 }

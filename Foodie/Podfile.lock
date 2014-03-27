@@ -47,6 +47,7 @@ PODS:
   - EasyTableView (1.1.1)
   - Facebook-iOS-SDK (3.13.0)
   - FXBlurView (1.5.3)
+  - GPUImage (0.1.3)
   - MBProgressHUD (0.8)
   - OHAttributedLabel (3.5.3)
   - SDWebImage (3.5.2):
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - EasyTableView
   - Facebook-iOS-SDK
   - FXBlurView
+  - GPUImage
   - MBProgressHUD
   - OHAttributedLabel
   - SDWebImage
@@ -69,6 +71,7 @@ SPEC CHECKSUMS:
   EasyTableView: 5d6f13647b9f381559bda84995e9e257541cae1f
   Facebook-iOS-SDK: 5788541337dc88265bc940cb5ffb05915f9b64e3
   FXBlurView: 8d662dd5b4ba15a1a0e97235501326fbdfb2b755
+  GPUImage: efcc16efc1fc45c8f2fdc50591f3505d100789de
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   OHAttributedLabel: 985e4b57eec0dc6add79179ac47ec888b8a914e7
   SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
