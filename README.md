@@ -1,4 +1,4 @@
 Foodie
 ======
 
-Food based social network
+iOS app for a food based social network
